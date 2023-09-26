@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle Middle_form" th:fragment="content">
+    <div class="Middle-top">
+        <div class="wrap">
+            <h1 class="Middle-title" th:text="#{page.signup.title}">Регистрация</h1>
+        </div>
+    </div>
+    <div class="wrap">
+        <main class="Middle-main">
+            <form class="form Login Login_registration" th:action="${@environment.getProperty('app.link.registration')}" method="post">
+                <div class="Login-ins">
+                    <div class="Login-step">
+                        <div class="form-group">
+                            <input class="form-input"
+                                   id="name"
+                                   name="name"
+                                   type="text"
+                                   placeholder="Введите Имя"
+                                   data-validate="require"
+                                   th:placeholder="#{page.signup.form.name.placeholder}"
+                            />
+                        </div>
+                        <div class="form-group form-group_row">
+                            <div class="form-group">
+                                <input class="form-input form-input_phone"
+                                       id="phone"
+                                       name="phone"
+                                       type="text"
+                                       placeholder="Введите телефон"
+                                       data-mask="+7 (999) 999-99-99"
+                                       data-validate="require"
+                                       th:placeholder="#{page.signup.form.phone.placeholder}"
+                                />
+                            </div>
+                            <div class="form-group form-group_key">
+                                <input class="form-input form-input_code"
+                                       id="phoneCode"
+                                       name="phoneCode"
+                                       type="text"
+                                       placeholder="Код из СМС"
+                                       data-mask="999 999"
+                                       data-validate="require key"
+                                       th:placeholder="#{page.signup.form.phone.code.placeholder}"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn_success btn_sm form-btn"
+                                        type="button"
+                                        name="submitPhone"
+                                        disabled="disabled"
+                                        id="submitPhone"
+                                        data-type="phone"
+                                        th:text="#{page.signup.form.confirm}"
+                                >Подтвердить</button>
+                            </div>
+                        </div>
+                        <div class="form-group form-group_row">
+                            <div class="form-group">
+                                <input class="form-input form-input_mail"
+                                       id="mail"
+                                       name="mail"
+                                       type="text"
+                                       placeholder="Введите e-mail"
+                                       data-validate="mail require"
+                                       th:placeholder="#{page.signup.form.mail.placeholder}"
+                                />
+                            </div>
+                            <div class="form-group form-group_key">
+                                <input class="form-input form-input_code"
+                                       id="mailCode"
+                                       name="mailCode"
+                                       type="text"
+                                       placeholder="Код из письма"
+                                       data-mask="999 999"
+                                       data-validate="require key"
+                                       th:placeholder="#{page.signup.form.mail.code.placeholder}"
+                                />
+                            </div>
+                            <div class="form-group">
+                                <button class="btn btn_success btn_sm form-btn"
+                                        type="button"
+                                        name="submitMail"
+                                        disabled="disabled"
+                                        id="submitMail"
+                                        data-type="mail"
+                                        th:text="#{page.signup.form.confirm}"
+                                >Подтвердить</button>
+                            </div>
+                        </div>
+                        <div class="form-group form-group_row">
+                            <div class="form-group">
+                                <input class="form-input form-input_password"
+                                       id="password"
+                                       name="password"
+                                       type="text"
+                                       placeholder="Введите пароль"
+                                       data-validate="password require"
+                                       th:placeholder="#{page.signup.form.password.placeholder}"
+                                />
+                            </div>
+                        </div>
+                        <div class="form-group form-group_center">
+                            <button class="btn btn_primary form-btn"
+                                    type="submit"
+                                    name="registration"
+                                    id="registration"
+                                    disabled="disabled"
+                                    th:text="#{button.registration}"
+                            >Зарегистрироваться</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <input id="require-msg" type="hidden" th:value="#{page.error.validation.require}">
+            <input id="mail-msg" type="hidden" th:value="#{page.error.validation.mail}">
+            <input id="key-msg" type="hidden" th:value="#{page.error.validation.key}">
+        </main>
+    </div>
+</div>
+</body>
+</html>

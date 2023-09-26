@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+    <changeSet id="1687177118986-1" author="sts">
+        <insert tableName="books_files">
+            <column name="hash" value="71664408-08f3-4124-b19d-912a781d8812"/>
+            <column name="type_id" value="1"/>
+            <column name="path" value="book.pdf"/>
+            <column name="book_id" value="3209"/>
+        </insert>
+        <insert tableName="books_files">
+            <column name="hash" value="f02afc67-b828-406b-a7ba-ca2b35dd10f9"/>
+            <column name="type_id" value="2"/>
+            <column name="path" value="book.epub"/>
+            <column name="book_id" value="3209"/>
+        </insert>
+        <insert tableName="books_files">
+            <column name="hash" value="ca09f985-bb1e-46df-876b-780179371da0"/>
+            <column name="type_id" value="3"/>
+            <column name="path" value="book.fb2"/>
+            <column name="book_id" value="3209"/>
+        </insert>
+        <insert tableName="books_files">
+            <column name="hash" value="8c0f72ae-a674-4bac-b6a7-f3c4177770b8"/>
+            <column name="type_id" value="1"/>
+            <column name="path" value="book.pdf"/>
+            <column name="book_id" value="4324"/>
+        </insert>
+        <insert tableName="books_files">
+            <column name="hash" value="6425fa57-e85b-4f27-8404-fb993187d957"/>
+            <column name="type_id" value="2"/>
+            <column name="path" value="book.epub"/>
+            <column name="book_id" value="4324"/>
+        </insert>
+        <insert tableName="books_files">
+            <column name="hash" value="d060776c-5bbf-4141-bf9e-37cbdd09fa79"/>
+            <column name="type_id" value="3"/>
+            <column name="path" value="book.fb2"/>
+            <column name="book_id" value="4324"/>
+        </insert>
+        <insert tableName="books_files">
+            <column name="hash" value="d6c8317b-4352-45d4-9d46-74e93ac4eb10"/>
+            <column name="type_id" value="1"/>
+            <column name="path" value="book.pdf"/>
+            <column name="book_id" value="2062"/>
+        </insert>
+        <insert tableName="books_files">
+            <column name="hash" value="77c0103c-39c6-4f01-8ca8-ff4789133da8"/>
+            <column name="type_id" value="2"/>
+            <column name="path" value="book.epub"/>
+            <column name="book_id" value="2062"/>
+        </insert>
+        <insert tableName="books_files">
+            <column name="hash" value="7fccd352-0be7-4e3e-9c34-08b08cb0a395"/>
+            <column name="type_id" value="3"/>
+            <column name="path" value="book.fb2"/>
+            <column name="book_id" value="2062"/>
+        </insert>
+        <insert tableName="books_files">
+            <column name="hash" value="fecfd172-23f7-424e-8a08-73d3134fe3a7"/>
+            <column name="type_id" value="1"/>
+            <column name="path" value="book.pdf"/>
+            <column name="book_id" value="3488"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

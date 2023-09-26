@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <h1 class="Middle-title" th:text="#{page.documents.title}">Документы</h1>
+            <div class="Section">
+                <div class="Documents">
+                    <div class="Documents-wrap">
+                        <a th:each="doc : ${list}" class="Documents-item" th:href="${doc.slug}">
+                            <div class="Documents-image">
+                                <img th:src="${doc.img}" alt="doc.jpg"/>
+                            </div>
+                            <div class="Documents-content">
+                                <strong class="Documents-title" th:text="${doc.title}">Публичная оферта</strong>
+                                <p th:utext="${doc.shortText}">Первый абзац документа</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1693587207937-1" author="sts">
+        <createTable tableName="book2user_recent_views" remarks="Таблица недавно просмотренных книг">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="book2user_recent_views_pkey" />
+            </column>
+            <column name="book_id" type="integer" remarks="Идентификатор книги">
+                <constraints nullable="false" foreignKeyName="book2user_recent_views_book_fk" deleteCascade="true" referencedTableName="books" referencedColumnNames="id" />
+            </column>
+            <column name="user_id" type="integer" remarks="Идентификатор пользователя">
+                <constraints nullable="false" foreignKeyName="book2user_recent_views_users_fk" deleteCascade="true" referencedTableName="users" referencedColumnNames="id" />
+            </column>
+            <column name="time" type="DATETIME" remarks="Дата и время просмотра">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

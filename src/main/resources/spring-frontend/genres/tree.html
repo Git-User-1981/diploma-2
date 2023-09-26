@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <th:block th:fragment="buildTree(childTree)">
+        <th:block th:each="child : ${childTree}">
+            <div class="Tag" th:if="${#lists.isEmpty(child.children)}">
+                <a th:href="${child.path}">
+                    <span th:text="${child.name}">Детективы</span>
+                    <span th:text="${'(' + child.bookCount + ')'}" class="undefined-amount">(15638)</span>
+                </a>
+            </div>
+            <div class="Tags" th:unless="${#lists.isEmpty(child.children)}">
+                <div class="Tags-title">
+                    <div class="Tag">
+                        <a th:href="${child.path}">
+                            <span th:text="${child.name}">Лёгкое чтение</span>
+                            <span th:text="${'(' + child.bookCount + ')'}" class="undefined-amount">(15638)</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="Tags" th:replace="~{genres/tree :: buildTree(${child.children})}"></div>
+            </div>
+        </th:block>
+    </th:block>
+</body>
+</html>

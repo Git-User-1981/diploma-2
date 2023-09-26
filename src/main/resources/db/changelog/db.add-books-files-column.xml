@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+    <changeSet id="1687168666608-1" author="sts">
+        <addColumn tableName="books_files">
+            <column name="book_id" type="INTEGER"/>
+        </addColumn>
+        <addForeignKeyConstraint baseTableName="books_files"
+                                 baseColumnNames="book_id"
+                                 referencedTableName="books"
+                                 referencedColumnNames="id"
+                                 constraintName="books_files_books_fk"
+                                 deleteCascade="true"/>
+    </changeSet>
+</databaseChangeLog>

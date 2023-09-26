@@ -1,0 +1,12 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet  author="sts (generated)"  id="sql-1">
+        <sql dbms="postgresql">
+            SELECT pg_catalog.setval('authors_id_seq', 100, true);
+            SELECT pg_catalog.setval('books_id_seq', 4909, true);
+            SELECT pg_catalog.setval('book2author_id_seq', 10905, true);
+            SELECT pg_catalog.setval('book2user_type_id_seq', 4, true);
+            SELECT pg_catalog.setval('books_file_type_id_seq', 3, true);
+        </sql>
+    </changeSet>
+</databaseChangeLog>

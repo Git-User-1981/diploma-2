@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <div class="Section">
+                <div class="Section-header">
+                    <h2 class="Section-title" th:text="#{page.main.recommended}">Рекомендуемое</h2>
+                </div>
+                <div class="Slider Slider_carousel" th:replace="~{main/slider :: slider(${recommendedBooks}, 'recommended')}"></div>
+                <p th:if="${#lists.isEmpty(recommendedBooks)}" th:text="#{page.main.recommended.empty}">Рекомендуемых книг нет</p>
+
+                <div class="Section-header">
+                    <h2 class="Section-title" th:text="#{page.main.recent}">Новинки</h2>
+                </div>
+                <div class="Slider Slider_carousel" th:replace="~{main/slider :: slider(${recentBooks}, 'recent')}"></div>
+                <p th:if="${#lists.isEmpty(recentBooks)}" th:text="#{page.main.recent.empty}">Новых книг нет</p>
+
+                <div class="Section-header">
+                    <h2 class="Section-title" th:text="#{page.main.popular}">Популярное</h2>
+                </div>
+                <div class="Slider Slider_carousel" th:replace="~{main/slider :: slider(${popularBooks}, 'popular')}"></div>
+                <p th:if="${#lists.isEmpty(popularBooks)}" th:text="#{page.main.popular.empty}">Популярных книг нет</p>
+            </div>
+
+            <h2 class="Middle-title" th:text="#{page.main.tags}">Книги по тегам</h2>
+            <div class="Tags" id="tags" th:replace="~{tags/tag_cloud :: tagCloud(${tagList})}"></div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

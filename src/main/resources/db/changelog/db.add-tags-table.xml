@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1684863600840-1" author="sts">
+        <createTable tableName="tags" remarks="Таблица тегов книг">
+            <column name="id" autoIncrement="true" type="serial">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="tags_pkey" />
+            </column>
+            <column name="title" type="varchar2(255)" remarks="Наименование тега">
+                <constraints nullable="false" />
+            </column>
+            <column name="slug" type="varchar2(50)" remarks="Мнемонический идентификатор тега">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <th:block th:fragment="items(items, activeItem)" th:each="item : ${items}">
+        <li class="menu-item" th:classappend="${#strings.startsWith(activeItem, item.name)} ? 'menu-item_ACTIVE'">
+            <a class="menu-link" th:href="${item.path}" th:text="#{${item.title}}">Название</a>
+        </li>
+    </th:block>
+</body>
+</html>

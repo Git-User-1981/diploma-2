@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1687536733139-1" author="sts">
+        <createTable tableName="books_ratings" remarks="Таблица рейтинга книг">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="books_ratings_pkey" />
+            </column>
+            <column name="book_id" type="INTEGER" remarks="Идентификатор книги">
+                <constraints nullable="false" foreignKeyName="books_ratings_book_fk" deleteCascade="true" referencedTableName="books" referencedColumnNames="id" />
+            </column>
+            <column name="user_id" type="INTEGER" remarks="Идентификатор пользователя">
+                <constraints nullable="false" foreignKeyName="books_ratings_user_fk" deleteCascade="true" referencedTableName="users" referencedColumnNames="id" />
+            </column>
+            <column name="value" type="SMALLINT" remarks="Оценка">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="books_ratings" columnNames="book_id, user_id" constraintName="books_ratings_uk" />
+    </changeSet>
+</databaseChangeLog>

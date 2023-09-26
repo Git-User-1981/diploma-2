@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1689615951431-1" author="sts">
+        <createTable tableName="users_sessions" remarks="Таблица сессий пользователей">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="pk_users_sessions"/>
+            </column>
+            <column name="user_id" type="INTEGER" remarks="Идентификатор пользователя">
+                <constraints nullable="false" foreignKeyName="users_sessions_user_fk" deleteCascade="true" referencedTableName="users" referencedColumnNames="id" />
+            </column>
+            <column name="refresh_token" type="VARCHAR(255)" remarks="JWT refresh токен">
+                <constraints nullable="false"/>
+            </column>
+            <column name="expired" type="DATETIME" remarks="Дата после которой refresh-токен недействителен">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="users_sessions" columnNames="refresh_token" constraintName="users_sessions_uk"/>
+    </changeSet>
+</databaseChangeLog>

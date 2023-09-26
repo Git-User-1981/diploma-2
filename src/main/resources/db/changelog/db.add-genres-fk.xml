@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+    <changeSet id="1686646074731-1" author="sts">
+        <addForeignKeyConstraint baseTableName="genres"
+                                 baseColumnNames="parent_id"
+                                 referencedTableName="genres"
+                                 referencedColumnNames="id"
+                                 constraintName="genres_fk"
+                                 deleteCascade="true"/>
+    </changeSet>
+</databaseChangeLog>

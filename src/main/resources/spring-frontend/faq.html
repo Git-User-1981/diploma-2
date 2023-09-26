@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item">
+                    <a href="/" th:text="#{breadcrumbs.main}">Главная</a>
+                </li>
+                <li class="breadcrumbs-item breadcrumbs-item_current">
+                    <span th:text="#{breadcrumbs.faq}">Помощь</span>
+                </li>
+            </ul>
+            <h1 class="Middle-title" th:text="#{page.faq.title}">Помощь</h1>
+            <div class="FAQ">
+                <strong class="FAQ-title" th:text="#{page.faq.frequent}">Наиболее частые вопросы:</strong>
+                <div class="HideBlock FAQ-block" th:each="faq : ${list}">
+                    <header class="HideBlock-header HideBlock-trigger">
+                        <strong class="HideBlock-title" th:text="${faq.question}">Что делать, если я не нашел нужный товар</strong>
+                        <button class="HideBlock-btn" type="button"></button>
+                    </header>
+                    <div class="HideBlock-content" th:utext="${faq.answer}">
+                        <p>Если вы ввели в строке поиска название товара и увидели сообщение «Простите, по вашему запросу товаров сейчас нет», это значит, что такого товара у нас в ассортименте пока нет.</p>
+                        <p>В этом случае, вы можете добавить ссылку на искомый товар, нажав Не нашли, что искали? Мы передадим информацию менеджерам соответствующей категории и постараемся добавить товар в ассортимент.</p>
+                    </div>
+                </div>
+                <div class="FAQ-footer">
+                    <p class="FAQ-link" th:utext="#{page.faq.contact.us}">Или&#32;<a href="/contacts">свяжитесь с нами</a></p>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

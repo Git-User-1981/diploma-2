@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="tagCloud(tagList)" class="Tags" id="tags">
+        <div th:each="tag : ${tagList}" th:classappend="${tag.clss}" class="Tag">
+            <a th:href="${tag.path}" th:text="${tag.title}">современная литература</a>
+        </div>
+    </div>
+</body>
+</html>

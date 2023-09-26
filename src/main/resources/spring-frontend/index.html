@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie7" lang="ru" th:lang="${#locale.toString().split('_')[0]}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie8" lang="ru" th:lang="${#locale.toString().split('_')[0]}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<![endif]-->
+<!--[if IE 9]>
+<html class="ie9" lang="ru" th:lang="${#locale.toString().split('_')[0]}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="ru" th:lang="${#locale.toString().split('_')[0]}" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<!--<![endif]-->
+<head>
+    <title th:text="#{bookshop.title}">Тут название страницы написать</title>
+    <meta name="description" th:content="#{bookshop.description}" content="Описание страницы">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <!--meta( http-equiv="cache-control" content="no-cache")-->
+    <!--meta( http-equiv="expires" content="0")-->
+    <!--link(rel="preload" href="assets/css/extra.min.css?v=" + version as="style" crossorigin="anonymous")-->
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link rel="preload" href="/assets/fonts/Montserrat/Montserrat-SemiBold.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/Montserrat/Montserrat-Light.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/Montserrat/Montserrat-Medium.woff2" as="font" crossorigin="anonymous">
+    <link rel="preload" href="/assets/fonts/Montserrat/Montserrat-ExtraBold.woff2" as="font" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/fonts.min.css?v=64223515">
+    <link rel="stylesheet" href="/assets/css/basic.min.css?v=64223515">
+    <link rel="stylesheet" href="/assets/css/extra.min.css?v=64223515">
+</head>
+<body class="Site">
+<!--if lt IE 8
+p.error-browser
+    | Ваш браузер&nbsp;
+    em устарел!&nbsp;
+    a(href="https://browsehappy.com/") Выберите новую версию
+        +s
+        | браузера здесь&nbsp;
+    | для правильного отображения сайта.
+-->
+<header th:replace="~{main/header :: header(${menuItems}, ${menuBookCounts}, ${fragment})}"></header>
+<div th:replace="~{${fragment} :: content}"></div>
+<footer th:replace="~{main/footer :: footer(${menuItems})}"></footer>
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+<script src="/assets/plg/jQuery/jquery-3.5.1.min.js"></script>
+<script defer src="/assets/js/scripts.min.js?v=64223515"></script>
+<!--+menu(-->
+<!--    'Это раз',-->
+<!--    'Это два',-->
+<!--    'Это три'-->
+<!--)-->
+<!--br-->
+<!--br-->
+<!--+menu._vt-->
+<!--    +menuItem Это раз-->
+<!--    +menuItem.-item_danger Это два-->
+<!--    +menuItem Это три-->
+</body>
+</html>

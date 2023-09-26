@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="1684929747751-1" author="sts">
+        <insert tableName="tags">
+            <column name="title" value="современная литература"/>
+            <column name="slug" value="tag-1"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="классическая литература"/>
+            <column name="slug" value="tag-2"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="зарубежная литература"/>
+            <column name="slug" value="tag-3"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="фэнтези"/>
+            <column name="slug" value="tag-4"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="английская литература"/>
+            <column name="slug" value="tag-5"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="русская литература"/>
+            <column name="slug" value="tag-6"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="американская литература"/>
+            <column name="slug" value="tag-7"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="фантастика"/>
+            <column name="slug" value="tag-8"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="детская литература"/>
+            <column name="slug" value="tag-9"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="детектив"/>
+            <column name="slug" value="tag-10"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="любовь"/>
+            <column name="slug" value="tag-11"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="мистика"/>
+            <column name="slug" value="tag-12"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="юмор"/>
+            <column name="slug" value="tag-13"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="приключения"/>
+            <column name="slug" value="tag-14"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="сказка"/>
+            <column name="slug" value="tag-15"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="французская литература"/>
+            <column name="slug" value="tag-16"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="англия художественная литература"/>
+            <column name="slug" value="tag-17"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="психология"/>
+            <column name="slug" value="tag-18"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="философия"/>
+            <column name="slug" value="tag-19"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="экранизировано"/>
+            <column name="slug" value="tag-20"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="антиутопия"/>
+            <column name="slug" value="tag-21"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="books you must read before you die"/>
+            <column name="slug" value="tag-22"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="роман"/>
+            <column name="slug" value="tag-23"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="франция"/>
+            <column name="slug" value="tag-24"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="дайте две"/>
+            <column name="slug" value="tag-25"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="young adult"/>
+            <column name="slug" value="tag-26"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="война"/>
+            <column name="slug" value="tag-27"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="история"/>
+            <column name="slug" value="tag-28"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="детство"/>
+            <column name="slug" value="tag-29"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="жизнь"/>
+            <column name="slug" value="tag-30"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="драма"/>
+            <column name="slug" value="tag-31"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="россия"/>
+            <column name="slug" value="tag-32"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="книжное путешествие"/>
+            <column name="slug" value="tag-33"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="советская литература"/>
+            <column name="slug" value="tag-34"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="триллер"/>
+            <column name="slug" value="tag-35"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="америка"/>
+            <column name="slug" value="tag-36"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="немецкая литература"/>
+            <column name="slug" value="tag-37"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="вампиры"/>
+            <column name="slug" value="tag-38"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="школьная программа"/>
+            <column name="slug" value="tag-39"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="рассказы"/>
+            <column name="slug" value="tag-40"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="магия"/>
+            <column name="slug" value="tag-41"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="дети"/>
+            <column name="slug" value="tag-42"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="русская классика"/>
+            <column name="slug" value="tag-43"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="биография"/>
+            <column name="slug" value="tag-44"/>
+        </insert>
+        <insert tableName="tags">
+            <column name="title" value="english"/>
+            <column name="slug" value="tag-45"/>
+        </insert>
+        <rollback>
+            TRUNCATE table tags cascade;
+            SELECT pg_catalog.setval('tag_id_seq', 1, false);
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

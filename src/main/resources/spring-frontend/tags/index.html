@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div class="Middle" th:fragment="content">
+        <div class="wrap">
+            <main class="Middle-main">
+                <ul class="breadcrumbs">
+                    <li class="breadcrumbs-item">
+                        <a th:href="${@environment.getProperty('app.link.main')}" th:text="#{breadcrumbs.main}">Главная</a>
+                    </li>
+                    <li class="breadcrumbs-item breadcrumbs-item_current">
+                        <span th:text="${tag.title}">Психологическая проза</span>
+                    </li>
+                </ul>
+                <div class="Section">
+                    <div class="Section-header">
+                        <h1 class="Section-title" th:text="${tag.title}">Психологическая проза</h1>
+                        <div class="Section-header-links">
+                            <a class="Section-header-link"
+                                id="cloud-spoiler-btn"
+                                href="#"
+                                th:text="#{button.tags.show}"
+                                th:data-showtext="#{button.tags.show}"
+                                th:data-hidetext="#{button.tags.hide}"
+                            ></a>
+                        </div>
+                    </div>
+                    <div id="cloud-spoiler" class="Spoiler">
+                        <div class="Spoiler-hide">
+                            <div class="Tags" th:replace="~{tags/tag_cloud :: tagCloud(${tagList})}"></div>
+                        </div>
+                        <div class="Spoiler-footer"></div>
+                    </div>
+                    <div class="Cards Cards_refresh">
+                        <th:block th:each="book : ${bookList.books}">
+                            <div class="Card" th:replace="~{books/card :: bookCard(${book})}"></div>
+                        </th:block>
+
+                        <div class="Cards-footer Cards-footer_center">
+                            <a th:style="${bookList.count <= T(java.lang.Integer).parseInt(@environment.getProperty('app.books-per-page'))} ? 'display:none'"
+                               class="btn btn_primary"
+                               href="#"
+                               data-refreshshow="tag"
+                               data-refreshoffset="1"
+                               th:data-refreshlimit="${@environment.getProperty('app.books-per-page')}"
+                               th:data-refreshid="${tag.id}"
+                               th:text="#{button.more}"
+                            >Показать еще</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

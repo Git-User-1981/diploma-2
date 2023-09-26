@@ -1,0 +1,381 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="sts (generated)" id="1680616669863-1">
+        <createTable remarks="Контакты пользователей" tableName="users_contacts">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_contacts_pkey"/>
+            </column>
+            <column name="approved" remarks="Подтверждён ли контакт (0 или 1)" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="code" remarks="Код подтверждения" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueComputed="now()" name="code_time" remarks="Дата и время формирования кода подтверждения" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="code_trails" remarks="Количество попыток ввода кода подтверждения" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="contact" remarks="Контакт (e-mail или телефон)" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type" remarks="Тип контакта (телефон или e-mail)" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" remarks="Идентификатор пользователя, к которому относится данный контакт" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-2">
+        <createTable remarks="Жанры (дерево)" tableName="genres">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="genres_pkey"/>
+            </column>
+            <column name="name" remarks="Наименование жанра" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="parent_id" remarks="Идентификатор родительского жанра или NULL, если жанр является корневым" type="INTEGER"/>
+            <column name="slug" remarks="Мнемонический код жанра, используемый в ссылках на страницу данного жанра" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-3">
+        <createTable remarks="Отзывы о книгах" tableName="books_review">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="book_review_pkey"/>
+            </column>
+            <column name="book_id" remarks="Идентификатор книги" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text" remarks="Текст отзыва" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time" remarks="Время, когда оставлен отзыв" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" remarks="Идентификатор пользователя, который написал данный отзыв" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-4">
+        <createTable remarks="Сообщения в форму обратной связи" tableName="messages">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="messages_pkey"/>
+            </column>
+            <column name="email" remarks="Электронная почта пользователя, если он не был авторизован" type="VARCHAR(255)"/>
+            <column name="name" remarks="Имя пользователя, если он не был авторизован" type="VARCHAR(255)"/>
+            <column name="subject" remarks="Тема сообщения" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text" remarks="Текст сообщения" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time" remarks="Дата и время отправки сообщения" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" remarks="Идентификатор, если пользователь был авторизован" type="INTEGER"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-5">
+        <createTable remarks="Количество скачиваний книги пользователем" tableName="file_download">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="file_download_pkey"/>
+            </column>
+            <column name="book_id" remarks="Идентификатор скачанной книги" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="1" name="count" remarks="Количество скачиваний" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" remarks="Идентификатор пользователя, скачавшего книгу" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-6">
+        <createTable remarks="Лайки и дизлайки отзывов" tableName="books_review_like">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="book_review_like_pkey"/>
+            </column>
+            <column name="review_id" remarks="Идентификатор отзыва" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time" remarks="Дата и время, в которое поставлен лайк или дизлайк" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" remarks="Идентификатор пользователя, поставившего лайк или дизлайк" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="value" remarks="Лайк (1) или дизлайк (-1)" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-7">
+        <createTable remarks="Документы" tableName="documents">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="documents_pkey"/>
+            </column>
+            <column name="slug" remarks="Мнемонический код документа, отображаемый в ссылке на страницу документа" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="sort_index" remarks="Порядковый номер документа (для вывода на странице списка документов)" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="text" remarks="Текст документа в формате HTML" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" remarks="Наименование документа" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-8">
+        <createTable remarks="Привязка книг к жанрам" tableName="book2genre">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="book2genre_pkey"/>
+            </column>
+            <column name="book_id" remarks="Идентификатор книги" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="genre_id" remarks="Идентификатор жанра" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-9">
+        <createTable remarks="Типы привязок книг к пользователям" tableName="book2user_type">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="book2user_type_pkey"/>
+            </column>
+            <column name="code" remarks="Код типа привязки" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" remarks="Наименование типа привязки" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-10">
+        <createTable remarks="Транзакции по счетам пользователей" tableName="balance_transactions">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="balance_transaction_pkey"/>
+            </column>
+            <column name="book_id" remarks="Идентификатор книги, за покупку которой произошло списание" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="description" remarks="Описание транзакции: если зачисление, то откуда, если списание, то на что" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time" remarks="Дата и время транзакции" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" remarks="Идентификатор пользователя" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="value" remarks="Размер транзакции (положительный — зачисление, отрицательный — списание)" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-11">
+        <createTable remarks="Книги" tableName="books">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="books_pkey"/>
+            </column>
+            <column name="description" remarks="Описание книги" type="TEXT"/>
+            <column defaultValueNumeric="0" name="discount" remarks="Скидка в процентах или 0, если её нет" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="image" remarks="Изображение обложки" type="VARCHAR(255)"/>
+            <column name="is_bestseller" remarks="Книга очень популярна, является бестселлером" type="SMALLINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="price" remarks="Цена в рублях основная" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pub_date" remarks="Дата публикации" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="slug" remarks="Мнемонический идентификатор книги" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="title" remarks="Название книг" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-12">
+        <createTable remarks="Привязки книг к юзерам" tableName="book2user">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="book2user_pkey"/>
+            </column>
+            <column name="book_id" remarks="Идентификатор книги" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="time" remarks="Дата и время возникновения привязки" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_id" remarks="Тип привязки книги к пользователю" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" remarks="Идентификатор книги" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-13">
+        <createTable remarks="Файлы книг" tableName="books_files">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="books_files_pkey"/>
+            </column>
+            <column name="hash" remarks="Случайный хэш, предназначенный для идентификации файла при скачивании" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_id" remarks="Тип файла" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="path" remarks="Путь к файлу" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-14">
+        <createTable remarks="Типы файлов книг" tableName="books_file_type">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="book_file_type_pkey"/>
+            </column>
+            <column name="description" remarks="Описание типов файлов" type="TEXT"/>
+            <column name="name" remarks="Тип файла" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-15">
+        <createTable remarks="Частые вопросы и ответы на них" tableName="faq">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="faq_pkey"/>
+            </column>
+            <column name="answer" remarks="Ответ в формате HTML" type="TEXT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="question" remarks="Вопрос" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column defaultValueNumeric="0" name="sort_index" remarks="Порядковый номер вопроса в списке вопросов на странице “Помощь”" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-16">
+        <createTable remarks="Пользователи магазина" tableName="users">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="users_pkey"/>
+            </column>
+            <column defaultValueNumeric="0" name="balance" remarks="Баланс личного счёта, по умолчанию 0" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="hash" remarks="Хэш пользователя, используемый для внешней идентификации пользователя с целью скрытия его ID" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" remarks="Имя пользователя" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="reg_time" remarks="Дата и время регистрации" type="TIMESTAMP WITHOUT TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-17">
+        <createTable remarks="Авторы книг" tableName="authors">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="authors_pkey"/>
+            </column>
+            <column name="description" remarks="Описание (биография, характеристика)" type="TEXT"/>
+            <column name="name" remarks="Имя и фамилия автора" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="photo" remarks="Изображение с фотографией автора" type="VARCHAR(255)"/>
+            <column name="slug" remarks="Мнемонический идентификатор автора" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-18">
+        <createTable remarks="Привязка авторов к книгам" tableName="book2author">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="book2author_pkey"/>
+            </column>
+            <column defaultValueNumeric="0" name="sort_index" remarks="Порядковый номер автора" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="author_id" remarks="Идентификатор автора" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+            <column name="book_id" remarks="Идентификатор книги" type="INTEGER">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-19">
+        <addUniqueConstraint columnNames="user_id, book_id" constraintName="file_download_uk" tableName="file_download"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-20">
+        <addUniqueConstraint columnNames="user_id, review_id" constraintName="book_review_like_uk" tableName="books_review_like"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-21">
+        <addUniqueConstraint columnNames="genre_id, book_id" constraintName="book2genre_uk" tableName="book2genre"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-22">
+        <addUniqueConstraint columnNames="user_id, type_id, book_id" constraintName="book2user_uk" tableName="book2user"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-23">
+        <addUniqueConstraint columnNames="book_id, author_id" constraintName="book2author_uk" tableName="book2author"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-24">
+        <addForeignKeyConstraint baseColumnNames="author_id" baseTableName="book2author" constraintName="book2author_author_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="authors" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-25">
+        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="book2author" constraintName="book2author_book_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="books" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-26">
+        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="book2user" constraintName="book2user_book_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="books" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-27">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="book2user" constraintName="book2user_type_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="book2user_type" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-28">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="book2user" constraintName="book2user_user_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-29">
+        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="books_review" constraintName="book_review_book_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="books" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-30">
+        <addForeignKeyConstraint baseColumnNames="review_id" baseTableName="books_review_like" constraintName="book_review_like_review_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="books_review" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-31">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="books_review_like" constraintName="book_review_like_user_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-32">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="books_review" constraintName="book_review_user_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-33">
+        <addForeignKeyConstraint baseColumnNames="type_id" baseTableName="books_files" constraintName="books_files_type_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="books_file_type" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-34">
+        <addForeignKeyConstraint baseColumnNames="book_id" baseTableName="file_download" constraintName="file_download_book_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="books" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-35">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="file_download" constraintName="file_download_user_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-36">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="messages" constraintName="messages_user_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+    <changeSet author="sts (generated)" id="1680616669863-37">
+        <addForeignKeyConstraint baseColumnNames="user_id" baseTableName="users_contacts" constraintName="users_contacts_user_fk" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="users" validate="true"/>
+    </changeSet>
+</databaseChangeLog>

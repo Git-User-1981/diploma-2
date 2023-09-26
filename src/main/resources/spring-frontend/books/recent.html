@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item">
+                    <a th:href="${@environment.getProperty('app.link.main')}" th:text="#{breadcrumbs.main}">Главная</a>
+                </li>
+                <li class="breadcrumbs-item">
+                    <a th:href="${@environment.getProperty('app.link.genres')}" th:text="#{breadcrumbs.genres}">Книги</a>
+                </li>
+                <li class="breadcrumbs-item breadcrumbs-item_current">
+                    <span th:text="#{breadcrumbs.recent}">Новинки</span>
+                </li>
+            </ul>
+            <div class="Section">
+                <div class="Section-header">
+                    <h1 class="Section-title" th:text="#{page.recent.title}">Новинки</h1>
+                    <form class="form form_inline Section-header-form" action="#" method="post">
+                        <div class="form-group">
+                            <label class="form-label" th:text="#{filter.date.from}">с</label>
+                            <input class="form-input form-input_date form-input_date_uninit"
+                                   id="fromdaterecent"
+                                   name="fromdaterecent"
+                                   type="text"
+                                   th:placeholder="#{filter.date.placeholder}"
+                                   data-refreshoffset="0"
+                                   th:data-refreshlimit="${@environment.getProperty('app.books-per-page')}"
+                                   data-refreshshow="changedate"
+                                   data-refreshfrom="0"
+                                   autocomplete="off"
+                            />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" th:text="#{filter.date.to}">по</label>
+                            <input class="form-input form-input_date form-input_date_uninit"
+                                   id="enddaterecent"
+                                   name="enddaterecent"
+                                   type="text"
+                                   th:placeholder="#{filter.date.placeholder}"
+                                   data-refreshoffset="0"
+                                   th:data-refreshlimit="${@environment.getProperty('app.books-per-page')}"
+                                   data-refreshshow="changedate"
+                                   data-refreshto="0"
+                                   autocomplete="off"
+                            />
+                        </div>
+                    </form>
+                </div>
+                <div class="Cards Cards_refresh">
+                    <th:block th:each="book : ${recentBooks.books}">
+                        <div class="Card" th:replace="~{books/card :: bookCard(${book})}"></div>
+                    </th:block>
+
+                    <div class="Cards-footer Cards-footer_center">
+                        <a th:style="${recentBooks.count <= T(java.lang.Integer).parseInt(@environment.getProperty('app.books-per-page'))} ? 'display:none'"
+                           class="btn btn_primary"
+                           href="#"
+                           data-refreshshow="recent"
+                           data-refreshoffset="1"
+                           th:data-refreshlimit="${@environment.getProperty('app.books-per-page')}"
+                           th:text="#{button.more}"
+                        >Показать еще</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

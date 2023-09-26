@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1693496491585-1" author="sts">
+        <insert tableName="faq">
+            <column name="sort_index" valueNumeric="0"/>
+            <column name="question" value="Что делать, если я не нашел нужный товар"/>
+            <column name="answer"
+                    value="&lt;p&gt;Если вы ввели в строке поиска название товара и увидели сообщение «Простите, по вашему запросу товаров сейчас нет», это значит, что такого товара у нас в ассортименте пока нет.&lt;/p&gt;&lt;p&gt;В этом случае, вы можете добавить ссылку на искомый товар, нажав Не нашли, что искали? Мы передадим информацию менеджерам соответствующей категории и постараемся добавить товар в ассортимент.&lt;/p&gt;"/>
+        </insert>
+        <insert tableName="faq">
+            <column name="sort_index" valueNumeric="1"/>
+            <column name="question" value="Товара нет в наличии"/>
+            <column name="answer"
+                    value="&lt;p&gt;Мы регулярно пополняем запасы товаров на складах. Чтобы узнать о поступлении товара, подпишитесь на уведомления, нажав кнопку &quot;Узнать&quot; о поступлении.&lt;/p&gt;"/>
+        </insert>
+        <insert tableName="faq">
+            <column name="sort_index" valueNumeric="2"/>
+            <column name="question" value="У товара слишком высокая цена"/>
+            <column name="answer"
+                    value="&lt;p&gt;Вы можете дождаться скидки на интересующий товар. Чтобы не пропустить снижение цены, нажмите кнопку &quot;Это дорого?&quot; на карточке товара. Когда цена снизится, мы пришлем вам уведомление.&lt;/p&gt;"/>
+        </insert>
+        <insert tableName="faq">
+            <column name="sort_index" valueNumeric="3"/>
+            <column name="question" value="У меня есть вопрос про товар продавца"/>
+            <column name="answer"
+                    value="&lt;p&gt;С некоторыми продавцами можно связаться через чат. Чтобы задать интересующий вас вопрос, на карточке товара под его фотографиями нажмите &quot;Спросить&quot; продавца о товаре, далее введите ваше сообщение и дождитесь ответа.&lt;/p&gt;"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

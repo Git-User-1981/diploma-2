@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <div class="Section">
+                <div class="Section-header">
+                    <h3 class="Section-title" th:text="${error}">Текст ошибки</h3>
+                </div>
+                <div class="Section-content">
+                    <a th:href="${@environment.getProperty('app.link.main')}" th:text="#{page.main.back}">Вернуться на главную</a>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

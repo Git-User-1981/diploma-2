@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <h1 class="Middle-title" th:text="#{page.authors.title}">Авторы</h1>
+            <div class="Section">
+                <div class="Authors">
+                    <div class="Authors-links">
+                        <a class="Authors-link"
+                           th:each="authorsGroup : ${authorsData}"
+                           th:href="'#' + ${authorsGroup.key}"
+                           th:text="${#strings.toUpperCase(authorsGroup.key)}"
+                        ></a>
+                    </div>
+                    <div class="Authors-block">
+                        <th:block th:each="authorsGroup : ${authorsData}">
+                            <h2 class="Authors-title" th:id="${authorsGroup.key}" th:text="${#strings.toUpperCase(authorsGroup.key)}"></h2>
+                            <div class="Authors-letter">
+                                <div class="Authors-item" th:each="author : ${authorsGroup.value}">
+                                    <a th:href="${@environment.getProperty('app.link.authors') + '/' + author.slug}" th:text="${author.name}"></a>
+                                </div>
+                            </div>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

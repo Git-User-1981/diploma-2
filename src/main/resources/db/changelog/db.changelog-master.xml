@@ -1,0 +1,146 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+   http://www.liquibase.org/xml/ns/dbchangelog
+   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+
+    <include file="db.init-schema.xml" relativeToChangelogFile="true" />
+    <include file="db.init-data.xml" relativeToChangelogFile="true" />
+    <include file="db.init-sequence.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1680706294031-1" author="sts">
+        <tagDatabase tag="initial-state"/>
+    </changeSet>
+
+    <include file="db.change-column-type.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1681471191742-1" author="sts">
+        <tagDatabase tag="change-column-type"/>
+    </changeSet>
+
+    <include file="db.add-book-covers.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1684065006161-1" author="sts">
+        <tagDatabase tag="add-book-covers"/>
+    </changeSet>
+
+    <include file="db.add-users-data.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1684488936675-1" author="sts">
+        <tagDatabase tag="add-users"/>
+    </changeSet>
+
+    <include file="db.add-boor2user-data.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1684488980712-1" author="sts">
+        <tagDatabase tag="add-boor2user"/>
+    </changeSet>
+
+    <include file="db.add-tags-table.xml" relativeToChangelogFile="true" />
+    <include file="db.add-tags-data.xml" relativeToChangelogFile="true" />
+    <include file="db.add-book2tag-table.xml" relativeToChangelogFile="true" />
+    <include file="db.add-book2tag-data.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1685006614154-1" author="sts">
+        <tagDatabase tag="add-book2tag"/>
+    </changeSet>
+
+    <include file="db.add-book2genre-fk.xml" relativeToChangelogFile="true" />
+    <include file="db.add-genres-data.xml" relativeToChangelogFile="true" />
+    <include file="db.add-book2genre-data.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1685384465079-1" author="sts">
+        <tagDatabase tag="add-book2genre"/>
+    </changeSet>
+
+    <include file="db.add-genres-fk.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1686646302278-1" author="sts">
+        <tagDatabase tag="add-genres-fk"/>
+    </changeSet>
+
+    <include file="db.add-books-files-column.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1687169138936-1" author="sts">
+        <tagDatabase tag="add-books-files-column"/>
+    </changeSet>
+
+    <include file="db.add-books-files-data.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1687177191273-1" author="sts">
+        <tagDatabase tag="add-books-files-data"/>
+    </changeSet>
+
+    <include file="db.add-books-ratings-table.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1687537958866-1" author="sts">
+        <tagDatabase tag="add-books-ratings-table"/>
+    </changeSet>
+
+    <include file="db.add-books-ratings-data.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1687555539632-1" author="sts">
+        <tagDatabase tag="add-books-ratings-data"/>
+    </changeSet>
+
+    <include file="db.add-books-review-data.xml" relativeToChangelogFile="true" />
+    <include file="db.add-books-review-like-data.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1687873858006-1" author="sts">
+        <tagDatabase tag="add-books-review-and-like-data"/>
+    </changeSet>
+
+    <include file="db.add-users-columns.xml" relativeToChangelogFile="true" />
+    <include file="db.add-users-contacts-uk.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1688392712318-1" author="sts">
+        <tagDatabase tag="add-users-contacts-constraints"/>
+    </changeSet>
+
+    <include file="db.add-users-sessions-table.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1689617891033-1" author="sts">
+        <tagDatabase tag="add-users-sessions-table"/>
+    </changeSet>
+
+    <include file="db.add-users-roles.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1689624273076-1" author="sts">
+        <tagDatabase tag="add-users-roles"/>
+    </changeSet>
+
+    <include file="db.add-users-confirmations-table.xml" relativeToChangelogFile="true" />
+    <include file="db.delete-user-contacts-columns.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1692869720075-1" author="sts">
+        <tagDatabase tag="add-confirmations-table"/>
+    </changeSet>
+
+    <include file="db.set-null-book-id-balance-transactions.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1693296991711-1" author="sts">
+        <tagDatabase tag="set-null-book-id-balance-transactions"/>
+    </changeSet>
+
+    <include file="db.add-faq-data.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1693497549904-1" author="sts">
+        <tagDatabase tag="add-faq-data"/>
+    </changeSet>
+
+    <include file="db.add-documents-data.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1693498413641-1" author="sts">
+        <tagDatabase tag="add-documents-data"/>
+    </changeSet>
+
+    <include file="db.add-book2user-recent-view-table.xml" relativeToChangelogFile="true" />
+
+    <changeSet id="1693589381403-1" author="sts">
+        <tagDatabase tag="add-book2user-recent-view-table"/>
+    </changeSet>
+
+</databaseChangeLog>

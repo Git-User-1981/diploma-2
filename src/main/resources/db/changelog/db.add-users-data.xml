@@ -1,0 +1,610 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1684488495694-1" author="sts">
+        <insert tableName="users">
+            <column name="balance" value="999"/>
+            <column name="hash" value="ed52f5ff66c9f35a628267380a7fdc88"/>
+            <column name="name" value="Дьяков Александр"/>
+            <column name="reg_time" value="2022-06-28 20:00:29.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="101"/>
+            <column name="hash" value="74eb2a3a162003b56a52a508d6469118"/>
+            <column name="name" value="Соколова Ева"/>
+            <column name="reg_time" value="2023-01-18 21:03:03.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="440"/>
+            <column name="hash" value="3c6eb6320d7da1195c548392af58b8dc"/>
+            <column name="name" value="Дементьев Пётр"/>
+            <column name="reg_time" value="2022-06-03 10:51:04.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="217"/>
+            <column name="hash" value="61cbedf91d6ad4c0954ab146a824137d"/>
+            <column name="name" value="Крылов Никита"/>
+            <column name="reg_time" value="2023-04-28 13:56:40.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="463"/>
+            <column name="hash" value="8d3b3afbe1d506bb3ccb502e86b4f731"/>
+            <column name="name" value="Александров Александр"/>
+            <column name="reg_time" value="2022-08-04 02:46:32.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="350"/>
+            <column name="hash" value="87b672c2fa586dd7abbb322f69809670"/>
+            <column name="name" value="Борисова Амира"/>
+            <column name="reg_time" value="2022-09-12 23:52:39.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="211"/>
+            <column name="hash" value="8fe8c7da2cb3ad6bf1ece6515769fe7e"/>
+            <column name="name" value="Агафонова Софья"/>
+            <column name="reg_time" value="2023-02-20 22:27:45.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="759"/>
+            <column name="hash" value="38ad6d07b406a443029cc35001689851"/>
+            <column name="name" value="Петров Максим"/>
+            <column name="reg_time" value="2023-04-30 07:42:08.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="309"/>
+            <column name="hash" value="a65916262f79a3b1a45a6505c9d526f4"/>
+            <column name="name" value="Иванов Артём"/>
+            <column name="reg_time" value="2023-03-20 08:44:33.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="54"/>
+            <column name="hash" value="8169f39f486ce148d34d49ce501bcb7f"/>
+            <column name="name" value="Павлова Ксения"/>
+            <column name="reg_time" value="2022-12-01 18:55:46.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="297"/>
+            <column name="hash" value="773f9f235e8c26a2831acb973f7b18b6"/>
+            <column name="name" value="Родионов Роман"/>
+            <column name="reg_time" value="2023-03-26 06:10:22.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="88"/>
+            <column name="hash" value="7ff6347ecb9e794687f51533f55febc9"/>
+            <column name="name" value="Минин Илья"/>
+            <column name="reg_time" value="2023-04-25 02:58:15.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="602"/>
+            <column name="hash" value="7f727fe81c2cb66e723136d1cfcc3221"/>
+            <column name="name" value="Королева Майя"/>
+            <column name="reg_time" value="2022-08-05 09:05:17.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="343"/>
+            <column name="hash" value="152dfe3087c61c67c679286fc04a6cf4"/>
+            <column name="name" value="Горохова Оливия"/>
+            <column name="reg_time" value="2023-01-21 16:52:01.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="280"/>
+            <column name="hash" value="9a46d9d173e67de205b765a1beb4a801"/>
+            <column name="name" value="Климов Тихон"/>
+            <column name="reg_time" value="2022-09-03 09:05:04.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="812"/>
+            <column name="hash" value="5dcd346eecbaae7aebbf9c22f3a81c13"/>
+            <column name="name" value="Алексеев Михаил"/>
+            <column name="reg_time" value="2022-08-21 06:36:39.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="611"/>
+            <column name="hash" value="4993894d60987df8933b5f7f7eb6d1a4"/>
+            <column name="name" value="Зотова Александра"/>
+            <column name="reg_time" value="2022-12-22 18:45:56.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="923"/>
+            <column name="hash" value="c3d0ce553db1959b39c7c9a4fe7bee08"/>
+            <column name="name" value="Яковлева Ева"/>
+            <column name="reg_time" value="2022-05-23 20:00:26.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="459"/>
+            <column name="hash" value="c998d163c0d779a00f20c2a4c29297d3"/>
+            <column name="name" value="Куприянова Ксения"/>
+            <column name="reg_time" value="2023-03-23 14:17:49.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="430"/>
+            <column name="hash" value="7641395fc44b7535f022413737f9d0a0"/>
+            <column name="name" value="Сухарева Елизавета"/>
+            <column name="reg_time" value="2023-01-28 19:15:39.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="932"/>
+            <column name="hash" value="3b027f188d38317b782c9842993fb107"/>
+            <column name="name" value="Котов Константин"/>
+            <column name="reg_time" value="2023-04-24 11:56:24.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="387"/>
+            <column name="hash" value="95a0e8012ef1b0898edeccc6ec13106f"/>
+            <column name="name" value="Климова Александра"/>
+            <column name="reg_time" value="2022-10-05 15:21:46.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="9"/>
+            <column name="hash" value="00c92a9a5e1f2ff27a0655ef861fa5ef"/>
+            <column name="name" value="Самойлов Всеволод"/>
+            <column name="reg_time" value="2022-08-22 06:09:26.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="178"/>
+            <column name="hash" value="89f6d75be372d47d72f7b549d7eb2eed"/>
+            <column name="name" value="Николаев Арсений"/>
+            <column name="reg_time" value="2022-08-02 00:56:20.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="340"/>
+            <column name="hash" value="114172361cfe22ceddceb85f26d08093"/>
+            <column name="name" value="Лебедев Антон"/>
+            <column name="reg_time" value="2023-03-29 00:08:56.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="785"/>
+            <column name="hash" value="34575e377cb1d8b8a045fb627bc397fd"/>
+            <column name="name" value="Медведева Алёна"/>
+            <column name="reg_time" value="2022-10-18 09:58:51.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="484"/>
+            <column name="hash" value="25c6ba1d385c9b6c37d5bd4936e996ee"/>
+            <column name="name" value="Буров Александр"/>
+            <column name="reg_time" value="2022-08-09 01:48:18.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="926"/>
+            <column name="hash" value="3f498e4bd1f996b248691cf41fce7de0"/>
+            <column name="name" value="Никифоров Кирилл"/>
+            <column name="reg_time" value="2023-05-03 23:11:15.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="639"/>
+            <column name="hash" value="9d9c13b55706e9ffe51674a10e839789"/>
+            <column name="name" value="Филимонова Маргарита"/>
+            <column name="reg_time" value="2022-07-29 17:06:42.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="333"/>
+            <column name="hash" value="04f8ce65b8baa11611c8232768530c1b"/>
+            <column name="name" value="Ефимова Мария"/>
+            <column name="reg_time" value="2023-04-15 15:55:57.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="981"/>
+            <column name="hash" value="25b68815abc3eb3e06ab7d64c4d46dd6"/>
+            <column name="name" value="Синицын Захар"/>
+            <column name="reg_time" value="2023-05-05 11:35:18.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="680"/>
+            <column name="hash" value="216b2494c10bce1f83bd886db298015a"/>
+            <column name="name" value="Князев Богдан"/>
+            <column name="reg_time" value="2022-12-31 16:26:48.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="633"/>
+            <column name="hash" value="afd344adf846fbb2f60a9a4044466231"/>
+            <column name="name" value="Фокина Полина"/>
+            <column name="reg_time" value="2023-03-15 13:32:38.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="731"/>
+            <column name="hash" value="d9a157015e66ebf631471420c871ae53"/>
+            <column name="name" value="Ковалева Николь"/>
+            <column name="reg_time" value="2022-09-22 02:30:48.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="975"/>
+            <column name="hash" value="51778e8b4cb64f3f63b5ce37958ce5a9"/>
+            <column name="name" value="Сергеева Мария"/>
+            <column name="reg_time" value="2022-12-06 05:00:17.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="697"/>
+            <column name="hash" value="d4e38a10ebddabaccb39442be3507f59"/>
+            <column name="name" value="Иванова Марьям"/>
+            <column name="reg_time" value="2023-04-19 06:18:56.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="128"/>
+            <column name="hash" value="b7973247da1de87ab008102be0045d02"/>
+            <column name="name" value="Ильина Камилла"/>
+            <column name="reg_time" value="2023-04-13 18:53:57.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="73"/>
+            <column name="hash" value="b5dde0210eaac651bb0c1f60507f618d"/>
+            <column name="name" value="Попова Софья"/>
+            <column name="reg_time" value="2022-09-04 05:25:26.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="467"/>
+            <column name="hash" value="f77c70e189721edd1fa1369cc45a6689"/>
+            <column name="name" value="Молчанова Мария"/>
+            <column name="reg_time" value="2023-04-15 02:46:24.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="541"/>
+            <column name="hash" value="43b2957a3f5aec6ffb9b6b2bfa3e4c1d"/>
+            <column name="name" value="Галкина Милана"/>
+            <column name="reg_time" value="2022-07-14 11:04:37.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="232"/>
+            <column name="hash" value="66ac553fcce433fa694b896f59298a86"/>
+            <column name="name" value="Булгакова Виктория"/>
+            <column name="reg_time" value="2022-10-11 21:52:22.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="416"/>
+            <column name="hash" value="7a326a010ff9d085d607228758cc5b63"/>
+            <column name="name" value="Гордеев Глеб"/>
+            <column name="reg_time" value="2023-03-12 19:02:56.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="749"/>
+            <column name="hash" value="158809393d8c576613fa54769f0c2b39"/>
+            <column name="name" value="Родина Сабина"/>
+            <column name="reg_time" value="2023-02-08 17:16:11.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="674"/>
+            <column name="hash" value="887f1c352cdd22ae51491653e6f90259"/>
+            <column name="name" value="Зайцева Варвара"/>
+            <column name="reg_time" value="2023-01-07 06:08:12.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="598"/>
+            <column name="hash" value="3729bc8755d2e8b0ada328125180383f"/>
+            <column name="name" value="Худяков Даниил"/>
+            <column name="reg_time" value="2022-08-14 06:55:04.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="358"/>
+            <column name="hash" value="d5b939874bb2287b8b6cc936ac95bcda"/>
+            <column name="name" value="Сидоров Станислав"/>
+            <column name="reg_time" value="2022-05-29 12:22:29.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="327"/>
+            <column name="hash" value="5f6b5607553db9a1df4e7ee2402055d8"/>
+            <column name="name" value="Громов Николай"/>
+            <column name="reg_time" value="2023-04-02 12:35:06.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="254"/>
+            <column name="hash" value="e5ed51a0182eab47358682571a223784"/>
+            <column name="name" value="Григорьева Полина"/>
+            <column name="reg_time" value="2023-02-05 04:12:44.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="18"/>
+            <column name="hash" value="214cd02dfca487a3295d0241d4188c99"/>
+            <column name="name" value="Суханов Александр"/>
+            <column name="reg_time" value="2022-10-17 21:28:56.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="947"/>
+            <column name="hash" value="4ee9d359759ab85e1779bcd46f96f0aa"/>
+            <column name="name" value="Богданова Ангелина"/>
+            <column name="reg_time" value="2022-09-28 23:07:59.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="852"/>
+            <column name="hash" value="1f9f8c364ee2cbad33a5e8a445fa34bf"/>
+            <column name="name" value="Лопатин Даниил"/>
+            <column name="reg_time" value="2023-04-21 15:00:36.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="159"/>
+            <column name="hash" value="3c36eeae05e5c730e473ec50bab77dae"/>
+            <column name="name" value="Царева Анна"/>
+            <column name="reg_time" value="2022-08-24 10:37:59.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="434"/>
+            <column name="hash" value="7e8daa69c4c2bea949b28338646cec14"/>
+            <column name="name" value="Никифоров Родион"/>
+            <column name="reg_time" value="2022-10-23 04:41:31.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="676"/>
+            <column name="hash" value="af9bd2ff6492eab38e5a2a8b41904cae"/>
+            <column name="name" value="Сухарев Дамир"/>
+            <column name="reg_time" value="2022-06-11 21:05:43.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="797"/>
+            <column name="hash" value="334ef60e6defcdf4ff055e4b115f6fdd"/>
+            <column name="name" value="Алексеев Никита"/>
+            <column name="reg_time" value="2022-07-09 19:10:33.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="362"/>
+            <column name="hash" value="370a9a5125b7bd80f89020e6575c0462"/>
+            <column name="name" value="Чистякова Ольга"/>
+            <column name="reg_time" value="2023-04-04 16:49:19.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="982"/>
+            <column name="hash" value="7edc66c75f0d5f5dc4aad87207c58514"/>
+            <column name="name" value="Меркулов Лев"/>
+            <column name="reg_time" value="2022-11-03 21:03:28.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="74"/>
+            <column name="hash" value="2096ffbef068b300ee471be42f96e41f"/>
+            <column name="name" value="Афанасьев Константин"/>
+            <column name="reg_time" value="2023-01-19 01:44:40.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="113"/>
+            <column name="hash" value="bdcaafdb98bfc12c92ebb17663bc0f23"/>
+            <column name="name" value="Чернов Роберт"/>
+            <column name="reg_time" value="2022-10-09 23:08:10.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="246"/>
+            <column name="hash" value="a4e112990f57ff921355faf727ed66ea"/>
+            <column name="name" value="Федоров Даниэль"/>
+            <column name="reg_time" value="2022-12-26 07:48:39.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="871"/>
+            <column name="hash" value="862b516e2b9a90d262368f73a19138e7"/>
+            <column name="name" value="Морозова Анна"/>
+            <column name="reg_time" value="2022-08-12 18:02:36.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="871"/>
+            <column name="hash" value="4088da605ac90e2229c0fb345f22adda"/>
+            <column name="name" value="Орлова Есения"/>
+            <column name="reg_time" value="2022-08-16 15:28:00.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="504"/>
+            <column name="hash" value="cc54d738511e7502e62c2c283d487b7b"/>
+            <column name="name" value="Михайлова Анастасия"/>
+            <column name="reg_time" value="2023-02-17 13:29:51.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="817"/>
+            <column name="hash" value="80dcb7406c072f08712fbe776c6335ca"/>
+            <column name="name" value="Некрасов Николай"/>
+            <column name="reg_time" value="2023-02-23 16:01:56.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="858"/>
+            <column name="hash" value="f3bb696570ee8baa13449bec853256e6"/>
+            <column name="name" value="Титов Макар"/>
+            <column name="reg_time" value="2023-04-20 11:23:48.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="275"/>
+            <column name="hash" value="deb808c1b8aed7661e3732ca98ee913f"/>
+            <column name="name" value="Ковалев Ибрагим"/>
+            <column name="reg_time" value="2023-04-15 21:44:31.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="741"/>
+            <column name="hash" value="723e67ec5bf998f64d5cef5377820e4f"/>
+            <column name="name" value="Зимин Дмитрий"/>
+            <column name="reg_time" value="2022-10-11 02:36:38.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="949"/>
+            <column name="hash" value="2c3cd974c18b9879d0f9c2a14be4db50"/>
+            <column name="name" value="Федорова Василиса"/>
+            <column name="reg_time" value="2023-01-19 22:20:24.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="955"/>
+            <column name="hash" value="db4a3763321ffee4caa50fc84f5213b7"/>
+            <column name="name" value="Ермакова Ярослава"/>
+            <column name="reg_time" value="2023-04-14 17:38:24.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="101"/>
+            <column name="hash" value="0f286f0f17fe19ed33be4dbefff5f3b2"/>
+            <column name="name" value="Глебова Ксения"/>
+            <column name="reg_time" value="2023-03-20 20:11:37.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="518"/>
+            <column name="hash" value="a6b63564be3722e1b9105ebcb905f4b4"/>
+            <column name="name" value="Лебедева Мелисса"/>
+            <column name="reg_time" value="2023-05-09 21:55:25.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="185"/>
+            <column name="hash" value="01e51dbcce70937751b5d7de6194acc3"/>
+            <column name="name" value="Копылова Милана"/>
+            <column name="reg_time" value="2023-02-18 06:40:48.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="825"/>
+            <column name="hash" value="610ee06d23741e7397f17ed174f8f348"/>
+            <column name="name" value="Богданов Марк"/>
+            <column name="reg_time" value="2022-05-24 01:31:32.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="471"/>
+            <column name="hash" value="7e8ef148d7e352616a118dfa7e1cd9f7"/>
+            <column name="name" value="Лебедева Вероника"/>
+            <column name="reg_time" value="2022-10-12 08:29:53.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="704"/>
+            <column name="hash" value="3bc04685d8b5918bb1ca416b3b2983be"/>
+            <column name="name" value="Ширяева Виктория"/>
+            <column name="reg_time" value="2022-06-29 01:25:21.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="249"/>
+            <column name="hash" value="ddd90fe7f50a0aa7eab7aa21aa849c41"/>
+            <column name="name" value="Шевцова Василиса"/>
+            <column name="reg_time" value="2023-01-27 12:40:08.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="997"/>
+            <column name="hash" value="c24bf658d86c9bf28e129733b5b62d94"/>
+            <column name="name" value="Горюнов Георгий"/>
+            <column name="reg_time" value="2023-03-09 12:01:13.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="84"/>
+            <column name="hash" value="475a002b70b8f07647cc0e8b9bed2996"/>
+            <column name="name" value="Лазарева Арина"/>
+            <column name="reg_time" value="2022-07-27 16:19:00.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="330"/>
+            <column name="hash" value="beb4487eaa543f72e639ae273656b77f"/>
+            <column name="name" value="Власов Платон"/>
+            <column name="reg_time" value="2022-09-29 09:21:34.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="721"/>
+            <column name="hash" value="2714b1a701784b8bc457b023495c16be"/>
+            <column name="name" value="Савельев Сергей"/>
+            <column name="reg_time" value="2023-02-19 04:02:11.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="796"/>
+            <column name="hash" value="08d6bc8b5e24aaeab90a3c55702b6303"/>
+            <column name="name" value="Трофимова Анна"/>
+            <column name="reg_time" value="2023-04-12 19:47:31.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="601"/>
+            <column name="hash" value="62fe9ee3a8322a6b52d7603e1bf86080"/>
+            <column name="name" value="Кудрявцев Максим"/>
+            <column name="reg_time" value="2022-06-27 21:46:19.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="334"/>
+            <column name="hash" value="0a151ef8f16bdf786913dddf7bbb0309"/>
+            <column name="name" value="Чернышева Алиса"/>
+            <column name="reg_time" value="2023-05-13 07:42:48.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="355"/>
+            <column name="hash" value="4aee9daf9428087fe4c73cfae4830115"/>
+            <column name="name" value="Лаврова Евдокия"/>
+            <column name="reg_time" value="2023-03-29 20:36:38.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="551"/>
+            <column name="hash" value="0c9e004fd08efba9418ecd5dc4d69b34"/>
+            <column name="name" value="Вдовин Родион"/>
+            <column name="reg_time" value="2022-06-22 23:01:39.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="901"/>
+            <column name="hash" value="420fce8f373c0d6254a42dfa2614e89e"/>
+            <column name="name" value="Смирнова София"/>
+            <column name="reg_time" value="2022-12-26 21:00:16.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="907"/>
+            <column name="hash" value="0957975501a4a06bd4ebffb0e529de7b"/>
+            <column name="name" value="Соловьева Александра"/>
+            <column name="reg_time" value="2023-02-18 07:24:35.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="1"/>
+            <column name="hash" value="243685aeadaa71954850167abb8652d0"/>
+            <column name="name" value="Иванова Алина"/>
+            <column name="reg_time" value="2023-05-05 12:44:00.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="359"/>
+            <column name="hash" value="36c14fb0d4458b986a6ef3964934f955"/>
+            <column name="name" value="Пименов Артём"/>
+            <column name="reg_time" value="2022-09-03 05:41:25.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="684"/>
+            <column name="hash" value="b9ac4b6ed4848e85c334cf75d25512b6"/>
+            <column name="name" value="Бондарев Андрей"/>
+            <column name="reg_time" value="2022-06-13 01:52:16.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="435"/>
+            <column name="hash" value="49806bbb7f6e69dc200e0ad9c25d04b4"/>
+            <column name="name" value="Новиков Эмир"/>
+            <column name="reg_time" value="2022-11-02 07:55:45.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="533"/>
+            <column name="hash" value="bcae00187459734fdb31cbaba5416c08"/>
+            <column name="name" value="Андреева Милана"/>
+            <column name="reg_time" value="2022-09-23 23:05:56.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="722"/>
+            <column name="hash" value="b11a13f38a78f64616ec607b272ed69e"/>
+            <column name="name" value="Коновалов Андрей"/>
+            <column name="reg_time" value="2022-09-19 07:52:08.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="21"/>
+            <column name="hash" value="79c2bd9f1fb5ddeaf22f226ec615657a"/>
+            <column name="name" value="Федоров Михаил"/>
+            <column name="reg_time" value="2022-06-27 00:56:20.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="419"/>
+            <column name="hash" value="b24f4aadf9c8d2d8855ed63a107abf88"/>
+            <column name="name" value="Исаков Артур"/>
+            <column name="reg_time" value="2022-07-02 02:47:06.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="387"/>
+            <column name="hash" value="806fee5f1e630b803822e434a96735e1"/>
+            <column name="name" value="Снегирев Михаил"/>
+            <column name="reg_time" value="2023-05-07 14:29:47.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="907"/>
+            <column name="hash" value="2b9e15947983c5e3b7dfe4bc155011dd"/>
+            <column name="name" value="Балашова Александра"/>
+            <column name="reg_time" value="2022-10-04 18:54:17.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="810"/>
+            <column name="hash" value="402bdffb778de91dd8c5088052dee6e2"/>
+            <column name="name" value="Степанова Елизавета"/>
+            <column name="reg_time" value="2022-10-10 13:47:33.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="408"/>
+            <column name="hash" value="b707f9bd684f950c94c76e905ea4b0c1"/>
+            <column name="name" value="Максимова Вера"/>
+            <column name="reg_time" value="2022-12-21 12:46:31.000000"/>
+        </insert>
+        <insert tableName="users">
+            <column name="balance" value="860"/>
+            <column name="hash" value="84046d52a4ba91ccafb7c5741da04bc4"/>
+            <column name="name" value="Волкова Анна"/>
+            <column name="reg_time" value="2022-07-26 12:03:57.000000"/>
+        </insert>
+        <rollback>
+            TRUNCATE table users cascade;
+            SELECT pg_catalog.setval('book2user_id_seq', 1, false), pg_catalog.setval('users_id_seq', 1, false);
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

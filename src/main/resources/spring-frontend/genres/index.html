@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <h1 class="Middle-title" th:text="#{page.genres.title}">Жанры</h1>
+            <div class="Section">
+                <div class="Tags Tags_genres">
+                    <div class="Tags Tags_embed" th:each="genre : ${genreTree}">
+                        <div class="Tags-title">
+                            <div class="Tag">
+                                <a th:href="${genre.path}">
+                                    <span th:text="${genre.name}">Лёгкое чтение</span>
+                                    <span th:text="${'(' + genre.bookCount + ')'}" class="undefined-amount">(15638)</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="Tags" th:unless="${#lists.isEmpty(genre.children)}" th:replace="~{genres/tree :: buildTree(${genre.children})}"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

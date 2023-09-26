@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item">
+                    <a th:href="${@environment.getProperty('app.link.main')}" th:text="#{breadcrumbs.main}">Главная</a>
+                </li>
+                <li class="breadcrumbs-item">
+                    <a th:href="${@environment.getProperty('app.link.profile')}" th:text="#{breadcrumbs.profile}">Мой профиль</a>
+                </li>
+                <li class="breadcrumbs-item breadcrumbs-item_current">
+                    <span th:text="#{breadcrumbs.my-books}">Мои книги</span>
+                </li>
+            </ul>
+            <div class="Section">
+                <div class="Section-header">
+                    <h1 class="Section-title" th:text="#{page.my-books.title}">Мои книги</h1>
+                    <div class="Section-header-links">
+                        <a class="Section-header-link"
+                           th:if="${isArchive}"
+                           th:text="#{page.my-books.unread}"
+                           th:href="${@environment.getProperty('app.link.my')}"
+                        >Непрочитанные</a>
+                        <span class="Section-header-link Section-header-link_ACTIVE"
+                              th:unless="${isArchive}"
+                              th:text="#{page.my-books.unread}"
+                        >Непрочитанные</span>
+                        <span class="Section-header-link Section-header-link_ACTIVE"
+                              th:if="${isArchive}"
+                              th:text="#{page.my-books.archive}"
+                        >Архив</span>
+                        <a class="Section-header-link"
+                           th:unless="${isArchive}"
+                           th:text="#{page.my-books.archive}"
+                           th:href="${@environment.getProperty('app.link.archive')}"
+                        >Архив</a>
+                    </div>
+                </div>
+                <div class="Cards">
+                    <div class="Cart-messageInfo"
+                         th:if="${#lists.isEmpty(books) && !isArchive}"
+                         th:text="#{page.my-books.unread-none}"
+                    >Нет непрочитанных</div>
+                    <div class="Cart-messageInfo"
+                         th:if="${#lists.isEmpty(books) && isArchive}"
+                         th:text="#{page.my-books.archive-none}"
+                    >В архиве пусто</div>
+                    <th:block th:each="book : ${books}">
+                        <div class="Card" th:each="book : ${books}" th:replace="~{books/card :: bookCard(${book})}"></div>
+                    </th:block>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

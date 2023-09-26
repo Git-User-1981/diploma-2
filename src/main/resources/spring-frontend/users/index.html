@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle Middle_search" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <h1 class="Middle-title" th:text="#{page.search.title}">Поиск</h1>
+            <div class="Section">
+                <div class="search">
+                    <form class="form form_search" th:action="${@environment.getProperty('app.link.users')}" method="get">
+                        <input class="search-input"
+                               id="querypage"
+                               name="querypage"
+                               type="text"
+                               th:placeholder="#{page.users.search-placeholder}"
+                               th:value="${query}"
+                        />
+                        <button class="search-button" type="submit" th:text="#{button.search}">Поиск</button>
+                    </form>
+                </div>
+            </div>
+            <div class="Section Section_close">
+                <header class="Section-header">
+                    <h2 class="Section-title Middle-searchHeader"
+                        th:if="${#strings.isEmpty(query)}"
+                        th:text="#{page.search.not.set}"
+                    >Поисковый запрос не задан</h2>
+                    <h2 class="Section-title Middle-searchHeader"
+                        th:if="${!#strings.isEmpty(query) && usersList.count == 0}"
+                        th:text="#{page.users.not-found}"
+                    >По вашему запросу пользователи не найдены</h2>
+                    <h2 class="Section-title Middle-searchHeader"
+                        th:if="${!#strings.isEmpty(query) && usersList.count > 0}"
+                        th:text="#{page.users.result(${usersList.count})}"
+                    >Найдено 40 пользователей</h2>
+                </header>
+                <div class="Cards Cards_search Cards_refresh" th:if="${!#strings.isEmpty(query) && usersList.count > 0}">
+                    <div class="tableWrap">
+                        <table class="table table_noMargin">
+                            <thead>
+                            <tr>
+                                <th th:text="#{page.users.col1}">Имя</th>
+                                <th th:text="#{page.users.col2}">Дата регистрации</th>
+                                <th th:text="#{page.users.col3}">Роль</th>
+                                <th th:text="#{page.users.col4}">Телефон</th>
+                                <th th:text="#{page.users.col5}">Email</th>
+                                <th th:text="#{page.users.col6}">Баланс</th>
+                                <th style="width:170px"></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="user : ${usersList.users}">
+                                <td th:text="${user.name}">Иванов</td>
+                                <td th:text="${user.regTime}">15 мая 2017 10:03</td>
+                                <td th:text="${user.role}">USER</td>
+                                <td th:text="${user.phone}">+7 (111) 111-11-11</td>
+                                <td th:text="${user.email}">user@mail.me</td>
+                                <td th:text="${user.balance}">0</td>
+                                <td>
+                                    <a class="btn btn_primary btn_outline trigger"
+                                       style="padding:0 0 0 10px;display:inline-flex"
+                                       th:href="'#gift-' + ${user.id}"
+                                       th:title="#{button.gift}"
+                                    >
+                                        <span class="btn-icon"><img src="/assets/img/icons/myBook1.svg" alt="myBook1.svg"></span>
+                                    </a>
+                                    <div th:id="'gift-' + ${user.id}" class="modal modal_compression" style="background-color:rgba(0,0,0,.3)">
+                                        <div class="modal-window">
+                                            <a class="modal-close" href="#"><span></span><span></span></a>
+                                            <form method="post" style="display:inline-block">
+                                                <strong class="modal-title" th:text="#{page.users.book-slug}">Slug книги</strong>
+                                                <input type="hidden" name="user" th:value="${user.id}">
+                                                <input type="hidden" name="action" value="gift">
+                                                <p><input type="text" name="slug" class="form-input" data-validate="require" required></p>
+                                                <button class="btn btn btn_primary" type="submit">
+                                                    <span class="btn-content" th:text="#{button.gift}">Подарить книгу</span>
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <form method="post" style="display:inline-block">
+                                        <input type="hidden" name="user" th:value="${user.id}">
+                                        <input type="hidden" name="action" value="adm">
+                                        <button class="btn btn_primary btn_outline"
+                                                style="padding:0 0 0 10px"
+                                                type="submit"
+                                                th:title="#{button.set-admin}"
+                                        >
+                                            <span class="btn-icon"><img src="/assets/img/icons/myBook.svg" alt="myBook.svg"></span>
+                                        </button>
+                                    </form>
+                                    <form method="post" style="display:inline-block">
+                                        <input type="hidden" name="user" th:value="${user.id}">
+                                        <input type="hidden" name="action" value="del">
+                                        <button class="btn btn_danger btn_outline"
+                                                style="padding:0 0 0 10px"
+                                                type="submit"
+                                                th:title="#{button.delete}"
+                                        >
+                                            <span class="btn-icon"><img src="/assets/img/icons/trash1.svg" alt="trash.svg"></span>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <input id="require-msg" type="hidden" th:value="#{page.error.validation.require}">
+                        <input id="book-slug-msg" type="hidden" th:value="#{page.users.book-slug}">
+                        <input id="gift-msg" type="hidden" th:value="#{button.gift}">
+                        <input id="set-admin-msg" type="hidden" th:value="#{button.set-admin}">
+                        <input id="delete-msg" type="hidden" th:value="#{button.delete}">
+                    </div>
+
+                    <div class="Cards-footer Cards-footer_center">
+                        <a th:style="${usersList.count <= T(java.lang.Integer).parseInt(@environment.getProperty('app.books-per-page'))} ? 'display:none'"
+                           class="btn btn_primary"
+                           href="#"
+                           data-refreshshow="users"
+                           data-refreshoffset="1"
+                           th:data-refreshlimit="${@environment.getProperty('app.books-per-page')}"
+                           th:data-refreshquery="${query}"
+                           th:text="#{button.more}"
+                        >Показать еще</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

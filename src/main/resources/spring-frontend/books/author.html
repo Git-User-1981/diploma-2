@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div class="Middle" th:fragment="content">
+        <div class="wrap">
+            <main class="Middle-main">
+                <ul class="breadcrumbs">
+                    <li class="breadcrumbs-item">
+                        <a th:href="${@environment.getProperty('app.link.main')}" th:text="#{breadcrumbs.main}">Главная</a>
+                    </li>
+                    <li class="breadcrumbs-item">
+                        <a th:href="${@environment.getProperty('app.link.genres')}" th:text="#{breadcrumbs.genres}">Книги</a>
+                    </li>
+                    <li class="breadcrumbs-item breadcrumbs-item_current">
+                        <span th:text="${author.name}">Борис Васильевич Бедный</span>
+                    </li>
+                </ul>
+                <h1 class="Middle-title" th:text="${author.name}">Борис Васильевич Бедный</h1>
+                <div class="Section">
+                    <div class="Cards Cards_refresh">
+                        <th:block th:each="book : ${authorBooks.books}">
+                            <div class="Card" th:replace="~{books/card :: bookCard(${book})}"></div>
+                        </th:block>
+
+                        <div class="Cards-footer Cards-footer_center">
+                            <a th:style="${authorBooks.count <= T(java.lang.Integer).parseInt(@environment.getProperty('app.books-per-page'))} ? 'display:none'"
+                               class="btn btn_primary"
+                               href="#"
+                               data-refreshshow="author"
+                               data-refreshoffset="1"
+                               th:data-refreshlimit="${@environment.getProperty('app.books-per-page')}"
+                               th:data-refreshid="${author.id}"
+                               th:text="#{button.more}"
+                            >Показать еще</a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

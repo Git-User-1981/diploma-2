@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="Middle-top">
+        <div class="wrap">
+            <h1 class="Middle-title" th:text="#{page.contacts.title}">Контакты</h1>
+        </div>
+    </div>
+    <div class="wrap">
+        <main class="Middle-main">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item">
+                    <a th:href="${@environment.getProperty('app.link.main')}" th:text="#{breadcrumbs.main}">Главная</a>
+                </li>
+                <li class="breadcrumbs-item breadcrumbs-item_current">
+                    <span th:text="#{breadcrumbs.contacts}">Контакты</span>
+                </li>
+            </ul>
+            <div class="Contacts">
+                <div class="row">
+                    <div class="row-block">
+                        <h2 th:text="#{page.contacts.header1}">Контакты</h2>
+                        <div class="Contacts-prop">
+                            <strong class="Contacts-propTitle" th:text="#{page.contacts.phone}">Телефон:</strong>
+                            <span class="Contacts-propContent">8 (800) 484-48-48</span>
+                        </div>
+                        <div class="Contacts-prop">
+                            <strong class="Contacts-propTitle" th:text="#{page.contacts.mail}">E-mail:</strong>
+                            <span class="Contacts-propContent">test@test.ru</span>
+                        </div>
+                        <div class="Contacts-prop">
+                            <strong class="Contacts-propTitle" th:text="#{page.contacts.telegram}">Телеграм-бот:</strong>
+                            <span class="Contacts-propContent">@testBookShop</span>
+                        </div>
+                    </div>
+                    <div class="row-block">
+                        <div class="Contacts-form">
+                            <h2 th:text="#{page.contacts.header2}">Напишите нам:</h2>
+                            <form class="form" th:action="${@environment.getProperty('app.link.contacts')}" method="post">
+                                <div class="form-group" th:if="${isAnonymous}">
+                                    <input class="form-input"
+                                           id="name"
+                                           name="name"
+                                           type="text"
+                                           placeholder="Введите Имя"
+                                           data-validate="require"
+                                           th:placeholder="#{page.contacts.form.name.placeholder}"
+                                    />
+                                </div>
+                                <div class="form-group" th:if="${isAnonymous}">
+                                    <input class="form-input form-input_mail"
+                                           id="mail"
+                                           name="mail"
+                                           type="text"
+                                           placeholder="Введите e-mail"
+                                           data-validate="mail require"
+                                           th:placeholder="#{page.contacts.form.mail.placeholder}"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-input"
+                                           id="topic"
+                                           name="topic"
+                                           type="text"
+                                           placeholder="Введите тему"
+                                           data-validate="require"
+                                           th:placeholder="#{page.contacts.form.topic.placeholder}"
+                                    />
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-textarea Contacts-message"
+                                              name="message"
+                                              id="message"
+                                              placeholder="Введите сообщение"
+                                              data-validate="require"
+                                              th:placeholder="#{page.contacts.form.message.placeholder}"
+                                    ></textarea>
+                                </div>
+                                <div class="Profile-success"
+                                     th:if="${sendSuccess != null}"
+                                     th:text="#{page.contacts.success}"
+                                >Ваше сообщение отправлено</div>
+                                <div class="form-group">
+                                    <button class="btn btn_primary form-btn"
+                                            type="submit"
+                                            th:text="#{page.contacts.form.send}"
+                                    >Отправить</button>
+                                </div>
+                            </form>
+                            <input id="require-msg" type="hidden" th:value="#{page.error.validation.require}">
+                            <input id="mail-msg" type="hidden" th:value="#{page.error.validation.mail}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

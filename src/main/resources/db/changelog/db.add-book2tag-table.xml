@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet id="1684864366599-1" author="sts">
+        <createTable tableName="book2tag" remarks="Теги книг">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="book2tag_pkey" />
+            </column>
+            <column name="book_id" type="integer" remarks="Идентификатор книги">
+                <constraints nullable="false" foreignKeyName="book2tag_book_fk" deleteCascade="true" referencedTableName="books" referencedColumnNames="id" />
+            </column>
+            <column name="tag_id" type="integer" remarks="Идентификатор тега">
+                <constraints nullable="false" foreignKeyName="book2tag_tag_fk" deleteCascade="true" referencedTableName="tags" referencedColumnNames="id" />
+            </column>
+        </createTable>
+        <addUniqueConstraint tableName="book2tag" columnNames="book_id, tag_id" constraintName="book2tag_uk"/>
+    </changeSet>
+</databaseChangeLog>

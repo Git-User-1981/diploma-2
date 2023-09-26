@@ -1,0 +1,83 @@
+{
+    "properties": [
+        {
+            "name": "app.link.main",
+            "type": "java.lang.String",
+            "description": "Description for app.link.main."
+        },
+        {
+            "name": "app.link.genres",
+            "type": "java.lang.String",
+            "description": "Description for app.link.genres."
+        },
+        {
+            "name": "app.link.signin",
+            "type": "java.lang.String",
+            "description": "Description for app.link.signin."
+        },
+        {
+            "name": "app.link.signup",
+            "type": "java.lang.String",
+            "description": "Description for app.link.signup."
+        },
+        {
+            "name": "app.link.postponed",
+            "type": "java.lang.String",
+            "description": "Description for app.link.postponed."
+        },
+        {
+            "name": "app.link.cart",
+            "type": "java.lang.String",
+            "description": "Description for app.link.cart."
+        },
+        {
+            "name": "app.link.documents",
+            "type": "java.lang.String",
+            "description": "Description for app.link.documents."
+        },
+        {
+            "name": "app.link.about",
+            "type": "java.lang.String",
+            "description": "Description for app.link.about."
+        },
+        {
+            "name": "app.link.faq",
+            "type": "java.lang.String",
+            "description": "Description for app.link.faq."
+        },
+        {
+            "name": "app.link.contacts",
+            "type": "java.lang.String",
+            "description": "Description for app.link.contacts."
+        },
+        {
+            "name": "app.path.books.author",
+            "type": "java.lang.String",
+            "description": "Description for app.path.books.author."
+        },
+        {
+            "name": "app.link.registration",
+            "type": "java.lang.String",
+            "description": "Description for app.link.registration."
+        },
+        {
+            "name": "app.link.logout",
+            "type": "java.lang.String",
+            "description": "Description for app.link.logout."
+        },
+        {
+            "name": "app.link.profile",
+            "type": "java.lang.String",
+            "description": "Description for app.link.profile."
+        },
+        {
+            "name": "app.link.google.login",
+            "type": "java.lang.String",
+            "description": "Description for app.link.google.login."
+        },
+        {
+            "name": "app.link.search",
+            "type": "java.lang.String",
+            "description": "Description for app.link.search."
+        }
+    ] }

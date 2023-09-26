@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="Middle-top">
+        <div class="wrap">
+            <h1 class="Middle-title" th:text="#{page.profile.header}">Личный кабинет</h1>
+        </div>
+    </div>
+    <div class="wrap">
+        <main class="Middle-main">
+            <h2 class="Middle-title"
+                th:text="#{page.profile.main.title}"
+                th:if="${profileActive == 'main'}"
+            >Мой профиль</h2>
+            <h2 class="Middle-title"
+                th:text="#{page.profile.transactions.title}"
+                th:if="${profileActive == 'transactions'}"
+            >Транзакции</h2>
+            <h2 class="Middle-title"
+                th:text="#{page.profile.payment.title}"
+                th:if="${profileActive == 'payment'}"
+            >Пополнить счет</h2>
+            <div class="Tabs Tabs_default">
+                <div class="Tabs-links">
+                    <a class="Tabs-link"
+                       th:unless="${profileActive == 'main'}"
+                       th:text="#{page.profile.main.tab}"
+                       th:href="${@environment.getProperty('app.link.profile')}"
+                    >Основные сведения</a>
+                    <span class="Tabs-link Tabs-link_ACTIVE"
+                       th:if="${profileActive == 'main'}"
+                      th:text="#{page.profile.main.tab}"
+                    >Основные сведения</span>
+
+                    <a class="Tabs-link"
+                       th:unless="${profileActive == 'transactions'}"
+                       th:text="#{page.profile.transactions.tab}"
+                       th:href="${@environment.getProperty('app.link.transactions')}"
+                    >История транзакций</a>
+                    <span class="Tabs-link Tabs-link_ACTIVE"
+                       th:if="${profileActive == 'transactions'}"
+                       th:text="#{page.profile.transactions.tab}"
+                    >История транзакций</span>
+
+                    <a class="Tabs-link"
+                       th:unless="${profileActive == 'payment'}"
+                       th:text="#{page.profile.payment.tab}"
+                       th:href="${@environment.getProperty('app.link.payment')}"
+                    >Пополнить счет</a>
+                    <span class="Tabs-link Tabs-link_ACTIVE"
+                       th:if="${profileActive == 'payment'}"
+                       th:text="#{page.profile.payment.tab}"
+                    >Пополнить счет</span>
+                </div>
+                <div class="Tabs-wrap">
+                    <div class="Tabs-block" th:if="${profileActive == 'main'}">
+                        <div class="Profile">
+                            <form class="form Profile-form" th:action="${@environment.getProperty('app.link.profile-save')}" method="post">
+                                <div class="row">
+                                    <div class="row-block">
+                                        <div class="form-group">
+                                            <label class="form-label" for="name" th:text="#{page.profile.main.form.name}">Имя</label>
+                                            <input class="form-input"
+                                                   id="name"
+                                                   name="name"
+                                                   type="text"
+                                                   data-validate="require"
+                                                   th:value="${userInfo.name}"
+                                            />
+                                        </div>
+                                        <div class="form-group form-group_row">
+                                            <div class="form-group" style="position:absolute">
+                                                <label class="form-label" for="mail" th:text="#{page.profile.main.form.email}">E-mail</label>
+                                            </div>
+                                            <div class="form-group" style="width:100%">
+                                                <input class="form-input form-input_mail"
+                                                       id="mail"
+                                                       name="mail"
+                                                       type="text"
+                                                       data-validate="require mail"
+                                                       th:value="${userInfo.email}"
+                                                />
+                                                <div class="form-error"
+                                                      th:if="${userInfo.emailApproved == 0}"
+                                                      th:text="#{page.profile.main.form.email-not-confirm}"
+                                                ></div>
+                                            </div>
+                                            <div th:if="${userInfo.emailApproved == 0}" class="form-group" style="margin-left:25px">
+                                                <button class="btn btn_primary btn_sm form-btn"
+                                                        type="button"
+                                                        id="submitMail"
+                                                        data-type="mail-link"
+                                                        th:text="#{page.signup.form.confirm}"
+                                                >Подтвердить</button>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-group_row">
+                                            <div class="form-group" style="position:absolute">
+                                                <label class="form-label" for="phone" th:text="#{page.profile.main.form.phone}">Телефон</label>
+                                            </div>
+                                            <div class="form-group" style="width:100%">
+                                                <input class="form-input form-input_phone"
+                                                       id="phone"
+                                                       name="phone"
+                                                       type="text"
+                                                       data-mask="+7 (999) 999-99-99"
+                                                       data-validate="require"
+                                                       th:value="${userInfo.phone}"
+                                                />
+                                                <div class="form-error"
+                                                     th:if="${userInfo.phoneApproved == 0}"
+                                                     th:text="#{page.profile.main.form.phone-not-confirm}"
+                                                ></div>
+                                            </div>
+                                            <div th:if="${userInfo.phoneApproved == 0}" class="form-group" style="margin-left:25px">
+                                                <button class="btn btn_primary btn_sm form-btn"
+                                                        type="button"
+                                                        id="submitPhone"
+                                                        data-type="phone-link"
+                                                        th:text="#{page.signup.form.confirm}"
+                                                >Подтвердить</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row-block">
+                                        <div class="form-group">
+                                            <label class="form-label" for="password" th:text="#{page.profile.main.form.password}">Пароль</label>
+                                            <input class="form-input"
+                                                   id="password"
+                                                   name="password"
+                                                   type="password"
+                                                   th:placeholder="#{page.profile.main.form.password.placeholder}"
+                                            />
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="form-label" for="passwordReply" th:text="#{page.profile.main.form.password-reply}">Подтверждение пароля</label>
+                                            <input class="form-input"
+                                                   id="passwordReply"
+                                                   name="passwordReply"
+                                                   type="password"
+                                                   th:placeholder="#{page.profile.main.form.password-reply.placeholder}"
+                                            />
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="Profile-btn">
+                                                <button class="btn btn_danger" type="button" th:text="#{button.profile.cancel}" onclick="location.reload()">Отменить</button>
+                                                <button class="btn btn_primary" type="submit" th:text="#{button.profile.save}">Сохранить</button>
+                                            </div>
+                                            <div class="Profile-success"
+                                                 th:if="${profileSaveResult != null}"
+                                                 th:text="${profileSaveResult}"
+                                            >Профиль успешно сохранен</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <input id="require-msg" type="hidden" th:value="#{page.error.validation.require}">
+                            <input id="mail-msg" type="hidden" th:value="#{page.error.validation.mail}">
+                        </div>
+                    </div>
+                    <div class="Tabs-block" th:if="${profileActive == 'transactions'}">
+                        <div class="Transactions">
+                            <div class="tableWrap">
+                                <table class="table table_noMargin">
+                                    <thead>
+                                        <tr>
+                                            <th th:text="#{page.profile.transactions.col1}">Дата и время</th>
+                                            <th th:text="#{page.profile.transactions.col2}">Сумма</th>
+                                            <th th:text="#{page.profile.transactions.col3}">Описание</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="transaction : ${transactions.transactions}">
+                                            <td th:text="${transaction.time}">15 мая 2017 10:03</td>
+                                            <td>
+                                                <span class="Transactions_textSuccess">
+                                                    <strong th:text="${transaction.value}">+500 р.</strong>
+                                                </span>
+                                            </td>
+                                            <td th:utext="${transaction.description}">Пополнение счета</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="Transactions-footer Transactions-footer_center">
+                                <a class="btn btn_primary Transactions-get"
+                                   th:style="${transactions.count <= T(java.lang.Integer).parseInt(@environment.getProperty('app.transactions-per-page'))} ? 'display:none'"
+                                   href="#"
+                                   data-transactionsort="desc"
+                                   data-transactionoffset="1"
+                                   th:data-transactionlimit="${@environment.getProperty('app.transactions-per-page')}"
+                                   th:text="#{button.more}"
+                                >Показать еще</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="Tabs-block" th:if="${profileActive == 'payment'}">
+                        <form class="form Topup" action="#" method="post" th:data-hash="${userHash}">
+                            <div class="Topup-wrap">
+                                <h2 th:if="${noMoney != null}" th:text="#{page.error.profile.payment.no-money}"></h2>
+                                <strong class="Topup-title"
+                                        th:text="#{page.profile.payment.top-up-title}"
+                                >Введите сумму, на которую хотите пополнить свой счет:</strong>
+                                <div class="form-group form-group_row Topup-group">
+                                    <input class="form-input" id="sum" name="sum" style="text-align:center" type="text" th:value="100"/>
+                                    <span th:text="#{page.profile.payment.currency}">рублей</span>
+                                </div>
+                                <div class="form-group">
+                                    <div class="Topup-btn">
+                                        <button class="btn btn_primary" th:text="#{button.profile.top-up}">Пополнить</button>
+                                    </div>
+                                </div>
+                                <div class="form-group" th:if="${paySuccess}">
+                                    <div class="Topup-success" th:text="#{page.profile.payment.success}">Оплата прошла успешно</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

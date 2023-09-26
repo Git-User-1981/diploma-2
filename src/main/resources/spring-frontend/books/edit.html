@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<body>
+    <div class="Middle" th:fragment="content">
+        <div class="wrap">
+            <main class="Middle-main">
+                <ul class="breadcrumbs">
+                    <li class="breadcrumbs-item">
+                        <a th:href="${@environment.getProperty('app.link.main')}" th:text="#{breadcrumbs.main}">Главная</a>
+                    </li>
+                    <li class="breadcrumbs-item">
+                        <a th:href="${@environment.getProperty('app.link.genres')}" th:text="#{breadcrumbs.genres}">Книги</a>
+                    </li>
+                    <li class="breadcrumbs-item breadcrumbs-item_current">
+                        <span th:text="${book.title}">Название книги</span>
+                    </li>
+                </ul>
+                <div class="Product">
+                    <div class="ProductCard">
+                        <div class="ProductCard-look">
+                            <div class="ProductCard-photo" style="height:auto;position:relative">
+                                <img th:src="${book.image}" src="/assets/img/content/main/card.jpg" alt="card.jpg"/>
+                                <form name="coverForm" method="post" enctype="multipart/form-data" th:action="${book.slug + '/cover/save'}">
+                                    <input type="file" name="file" onchange="coverForm.submit()" accept="image/jpeg" style="opacity:0;position:absolute;top:0;left:0;right:0;bottom:0;width:100%" title=""/>
+                                </form>
+                            </div>
+                            <div class="form-group" style="margin:15px 0">
+                                <strong th:text="#{page.book.links}">Ссылки для скачивания</strong>
+                                <p th:unless="${#lists.isEmpty(files)}" th:each="file : ${files}">
+                                    <a th:href="${file.downloadPath}"
+                                       th:text="#{${file.typeDescription}(${file.size})}"
+                                    >Файл книги (10 KB)</a>
+                                </p>
+                            </div>
+                            <form name="epubForm" method="post" enctype="multipart/form-data" th:action="${book.slug + '/file/save'}">
+                                <input type="hidden" name="type" th:value="epub">
+                                <label for="epub">EPUB</label>
+                                <input id="epub" type="file" name="file" onchange="epubForm.submit()" accept="application/epub+zip" title=""/>
+                            </form>
+                            <form name="fb2Form" method="post" enctype="multipart/form-data" th:action="${book.slug + '/file/save'}">
+                                <input type="hidden" name="type" th:value="fb2">
+                                <label for="bf2">FB2</label>
+                                <input id="bf2" type="file" name="file" onchange="fb2Form.submit()" accept=".fb2" title=""/>
+                            </form>
+                            <form name="pdfForm" method="post" enctype="multipart/form-data" th:action="${book.slug + '/file/save'}">
+                                <input type="hidden" name="type" th:value="pdf">
+                                <label for="pdf">PDF</label>
+                                <input id="pdf" type="file" name="file" onchange="pdfForm.submit()" accept="application/pdf" title=""/>
+                            </form>
+                        </div>
+                        <div class="ProductCard-desc">
+                            <div class="ProductCard-header">
+                                <form th:action="${@environment.getProperty('app.path.books') + 'save'}" method="post">
+                                    <input type="hidden" name="book" th:value="${book.id}">
+                                    <div class="form-group">
+                                        <label for="title" th:text="#{page.book.title}">Название книги</label>
+                                        <input class="form-input" id="title" name="title" type="text" data-validate="require" th:value="${book.title}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description" th:text="#{page.book.description}">Описание</label>
+                                        <textarea class="form-input" id="description" name="description" type="text" data-validate="require" th:text="${book.description}"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bestseller" th:text="#{book.bestseller}">Бестселлер</label>
+                                        <input class="form-input" id="bestseller" name="bestseller" type="checkbox" th:checked="${book.isBestseller}" value="1"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="discount" th:text="#{page.book.discount}">Скидка</label>
+                                        <input class="form-input" id="discount" name="discount" type="text" data-validate="require" th:value="${book.discount}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price" th:text="#{page.book.price}">Цена</label>
+                                        <input class="form-input" id="price" name="price" type="text" data-validate="require" th:value="${book.discountPrice}"/>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="authors" th:text="#{page.book.authors}">Авторы</label>
+                                        <select class="form-input" id="authors" name="authors" data-validate="require" multiple>
+                                            <option th:each="author : ${authorsList}"
+                                                    th:value="${author.id}"
+                                                    th:text="${author.name}"
+                                                    th:selected="${#lists.contains(book.authors, author)}"
+                                            ></option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tags" th:text="#{page.book.tags}">Теги</label>
+                                        <select class="form-input" id="tags" name="tags" data-validate="require" multiple>
+                                            <option th:each="tag : ${tagsList}"
+                                                    th:value="${tag.id}"
+                                                    th:text="${tag.title}"
+                                                    th:selected="${#lists.contains(tags, tag)}"
+                                            ></option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <a class="btn btn_danger" th:href="@{${book.slug}}" th:text="#{button.profile.cancel}">Отмена</a>
+                                        <button class="btn btn btn_primary" type="submit" th:text="#{button.profile.save}">Сохранить</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+</html>

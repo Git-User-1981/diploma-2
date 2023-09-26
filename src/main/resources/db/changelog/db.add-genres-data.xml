@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1685357954769-1" author="sts">
+        <insert tableName="genres">
+            <column name="id" value="1"/>
+            <column name="name" value="Лёгкое чтение"/>
+            <column name="parent_id" value="null"/>
+            <column name="slug" value="genre-1"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="2"/>
+            <column name="name" value="Серьёзное чтение"/>
+            <column name="parent_id" value="null"/>
+            <column name="slug" value="genre-2"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="3"/>
+            <column name="name" value="Деловая литература"/>
+            <column name="parent_id" value="null"/>
+            <column name="slug" value="genre-3"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="4"/>
+            <column name="name" value="Драматургия"/>
+            <column name="parent_id" value="null"/>
+            <column name="slug" value="genre-4"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="5"/>
+            <column name="name" value="Фантастика"/>
+            <column name="parent_id" value="1"/>
+            <column name="slug" value="genre-5"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="6"/>
+            <column name="name" value="Боевики"/>
+            <column name="parent_id" value="1"/>
+            <column name="slug" value="genre-6"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="7"/>
+            <column name="name" value="Детективы"/>
+            <column name="parent_id" value="1"/>
+            <column name="slug" value="genre-7"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="8"/>
+            <column name="name" value="Фэнтези"/>
+            <column name="parent_id" value="1"/>
+            <column name="slug" value="genre-8"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="9"/>
+            <column name="name" value="Романы"/>
+            <column name="parent_id" value="1"/>
+            <column name="slug" value="genre-9"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="10"/>
+            <column name="name" value="Ужасы"/>
+            <column name="parent_id" value="1"/>
+            <column name="slug" value="genre-10"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="11"/>
+            <column name="name" value="Приключения"/>
+            <column name="parent_id" value="1"/>
+            <column name="slug" value="genre-11"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="12"/>
+            <column name="name" value="Биографии"/>
+            <column name="parent_id" value="2"/>
+            <column name="slug" value="genre-12"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="13"/>
+            <column name="name" value="Деловая литература"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-13"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="14"/>
+            <column name="name" value="Управление экономикой"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-14"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="15"/>
+            <column name="name" value="Карьера"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-15"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="16"/>
+            <column name="name" value="Маркетинг, PR, реклама"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-16"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="17"/>
+            <column name="name" value="Финансы"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-17"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="18"/>
+            <column name="name" value="Бизнес-справочники"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-18"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="19"/>
+            <column name="name" value="Личные финансы"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-19"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="20"/>
+            <column name="name" value="Менеджмент"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-20"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="21"/>
+            <column name="name" value="Зарубежная деловая литература"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-21"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="22"/>
+            <column name="name" value="Личная эффективность"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-22"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="23"/>
+            <column name="name" value="Тайм-менеджмент"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-23"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="24"/>
+            <column name="name" value="Малый бизнес"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-24"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="25"/>
+            <column name="name" value="Продажи"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-25"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="26"/>
+            <column name="name" value="Стартапы и создание бизнеса"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-26"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="27"/>
+            <column name="name" value="Корпоративная культура"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-27"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="28"/>
+            <column name="name" value="Банковское дело"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-28"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="29"/>
+            <column name="name" value="Логистика"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-29"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="30"/>
+            <column name="name" value="Недвижимость"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-30"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="31"/>
+            <column name="name" value="Интернет-бизнес"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-31"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="32"/>
+            <column name="name" value="Ораторское искусство / риторика"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-32"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="33"/>
+            <column name="name" value="Привлечение клиентов и лояльность"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-33"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="34"/>
+            <column name="name" value="Делопроизводство"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-34"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="35"/>
+            <column name="name" value="Переговоры"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-35"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="36"/>
+            <column name="name" value="Государственное и муниципальное управление, политическое управление"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-36"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="37"/>
+            <column name="name" value="О бизнесе популярно"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-37"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="38"/>
+            <column name="name" value="Ценные бумаги / инвестиции"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-38"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="39"/>
+            <column name="name" value="Бухучет / налогообложение / аудит"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-39"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="40"/>
+            <column name="name" value="Российская практика"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-40"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="41"/>
+            <column name="name" value="Истории успеха"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-41"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="42"/>
+            <column name="name" value="Интернет-маркетинг"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-42"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="43"/>
+            <column name="name" value="Лидерство"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-43"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="44"/>
+            <column name="name" value="Проектный менеджмент"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-44"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="45"/>
+            <column name="name" value="Управление качеством"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-45"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="46"/>
+            <column name="name" value="Финансовый менеджмент"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-46"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="47"/>
+            <column name="name" value="Управление персоналом"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-47"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="48"/>
+            <column name="name" value="Бизнес-процессы"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-48"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="49"/>
+            <column name="name" value="Управление бизнесом"/>
+            <column name="parent_id" value="3"/>
+            <column name="slug" value="genre-49"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="50"/>
+            <column name="name" value="Античная драма"/>
+            <column name="parent_id" value="4"/>
+            <column name="slug" value="genre-50"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="51"/>
+            <column name="name" value="Комедия"/>
+            <column name="parent_id" value="4"/>
+            <column name="slug" value="genre-51"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="52"/>
+            <column name="name" value="Сценарий"/>
+            <column name="parent_id" value="4"/>
+            <column name="slug" value="genre-52"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="53"/>
+            <column name="name" value="Драма, пьеса"/>
+            <column name="parent_id" value="4"/>
+            <column name="slug" value="genre-53"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="54"/>
+            <column name="name" value="Триллер"/>
+            <column name="parent_id" value="7"/>
+            <column name="slug" value="genre-54"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="55"/>
+            <column name="name" value="Крутой детектив"/>
+            <column name="parent_id" value="7"/>
+            <column name="slug" value="genre-55"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="56"/>
+            <column name="name" value="Иронический детектив"/>
+            <column name="parent_id" value="7"/>
+            <column name="slug" value="genre-56"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="57"/>
+            <column name="name" value="Про маньяков"/>
+            <column name="parent_id" value="7"/>
+            <column name="slug" value="genre-57"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="58"/>
+            <column name="name" value="Шпионский детектив"/>
+            <column name="parent_id" value="7"/>
+            <column name="slug" value="genre-58"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="59"/>
+            <column name="name" value="Криминальный детектив"/>
+            <column name="parent_id" value="7"/>
+            <column name="slug" value="genre-59"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="60"/>
+            <column name="name" value="Классический детектив"/>
+            <column name="parent_id" value="7"/>
+            <column name="slug" value="genre-60"/>
+        </insert>
+        <insert tableName="genres">
+            <column name="id" value="61"/>
+            <column name="name" value="Политический детектив"/>
+            <column name="parent_id" value="7"/>
+            <column name="slug" value="genre-61"/>
+        </insert>
+
+        <sql dbms="postgresql">
+            SELECT pg_catalog.setval('genres_id_seq', 61, true);
+        </sql>
+
+        <rollback>
+            TRUNCATE table genres cascade;
+            SELECT pg_catalog.setval('genres_id_seq', 1, false);
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

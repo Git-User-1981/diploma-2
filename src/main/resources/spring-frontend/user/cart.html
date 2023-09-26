@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <h1 class="Middle-title" th:text="#{page.cart.title}" th:data-empty="#{page.cart.is-empty}">Корзина</h1>
+            <form class="form Cart" th:action="${@environment.getProperty('app.link.order')}" method="post">
+                <div th:if="${#lists.isEmpty(books)}" th:text="#{page.cart.is-empty}" class="Cart-messageInfo">Корзина пуста</div>
+                <div class="Cart-product" th:each="book : ${books}">
+                    <div class="Cart-block Cart-block_row">
+                        <div class="Cart-block Cart-block_pict">
+                            <a class="Cart-pict" th:href="${book.slug}">
+                                <img th:src="${book.image}" class="Cart-img" src="/assets/img/content/main/card.jpg" alt="card.jpg"/>
+                            </a>
+                        </div>
+                        <div class="Cart-block Cart-block_row">
+                            <div class="Cart-block Cart-block_info">
+                                <div class="Cart-author">
+                                    <th:block th:each="author, iter : ${book.authors}">
+                                        <a th:href="${@environment.getProperty('app.link.authors') + '/' + author.slug}"
+                                           th:text="${author.name}"
+                                        >Лия Арден</a><th:block th:unless="${iter.last}">,&#32;</th:block>
+                                    </th:block>
+                                </div>
+                                <div class="Cart-title">
+                                    <a th:href="${book.slug}" th:text="${book.title}">Жизнь</a>
+                                </div>
+                                <div class="Cart-rating">
+                                    <span class="Rating">
+                                        <span class="Rating-stars" th:replace="~{books/stars :: rating(${book.rating})}"></span>
+                                    </span>
+                                </div>
+                                <div class="Cart-buttons">
+                                    <div class="Cart-btn">
+                                        <button class="btn btn_primary btn_outline" data-sendstatus="KEPT" th:data-bookid="${'[' + book.id + ']'}">
+                                            <span class="btn-icon">
+                                                <img src="/assets/img/icons/heart.svg" alt="heart.svg"/>
+                                            </span>
+                                            <span class="btn-content" th:text="#{button.postpone}">Отложить</span>
+                                        </button>
+                                    </div>
+                                    <div class="Cart-btn">
+                                        <button class="btn btn_danger btn_outline" data-sendstatus="UNLINK" th:data-bookid="${'[' + book.id + ']'}">
+                                            <span class="btn-icon">
+                                                <img src="/assets/img/icons/trash.svg" alt="trash.svg"/>
+                                            </span>
+                                            <span class="btn-content" th:text="#{button.delete}">Удалить</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="Cart-block Cart-block_price">
+                                <div class="Cart-priceTitle" th:text="#{page.cart.price}">Цена:</div>
+                                <div th:if="${book.discount > 0}" th:text="${'₽' + book.discountPrice}" class="Cart-price Cart-price_old">254 р.</div>
+                                <div th:text="${'₽' + book.price}" class="Cart-price">180 р.</div>
+                                <div th:if="${book.discount > 0}" th:text="#{page.cart.discount(${book.discount})}" class="Cart-sale">-30%</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="Cart-total">
+                    <div class="Cart-block Cart-block_total">
+                        <strong class="Cart-title" th:text="#{page.cart.total}">Итого:</strong>
+                        <span class="Cart-price" th:text="${'₽' + totals[0]}">534 р.</span>
+                        <span class="Cart-price_old" th:unless="${totals[1] == '0'}" th:text="${'₽' + totals[1]}">658 р.</span>
+                    </div>
+                    <div class="Cart-block">
+                        <button class="btn btn_success btn_md" type="submit" th:text="#{button.buy}">Купить</button>
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+</body>
+</html>

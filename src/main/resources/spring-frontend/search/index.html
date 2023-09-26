@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle Middle_search" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <h1 class="Middle-title" th:text="#{page.search.title}">Поиск</h1>
+            <div class="Section">
+                <div class="search">
+                    <form class="form form_search" th:action="${@environment.getProperty('app.link.search')}" method="post" data-searchlimit="20">
+                        <input class="search-input"
+                               id="querypage"
+                               name="querypage"
+                               type="text"
+                               th:placeholder="#{header.search.placeholder}"
+                               th:value="${query}"
+                        />
+                        <button class="search-button" type="submit" name="searchpage" id="searchpage" th:text="#{button.search}">Поиск</button>
+                    </form>
+                </div>
+            </div>
+            <div class="Section Section_close">
+                <header class="Section-header">
+                    <h2 class="Section-title Middle-searchHeader"
+                        th:if="${#strings.isEmpty(query)}"
+                        th:text="#{page.search.not.set}"
+                    >Поисковый запрос не задан</h2>
+                    <h2 class="Section-title Middle-searchHeader"
+                        th:if="${!#strings.isEmpty(query) && bookList.count == 0}"
+                        th:text="#{page.search.not.found}"
+                    >По вашему запросу книги не найдены</h2>
+                    <h2 class="Section-title Middle-searchHeader"
+                        th:if="${!#strings.isEmpty(query) && bookList.count > 0}"
+                        th:text="#{page.search.result(${bookList.count})}"
+                    >Найдено 40 книг</h2>
+                </header>
+                <div class="Cards Cards_search Cards_refresh" th:if="${!#strings.isEmpty(query) && bookList.count > 0}">
+                    <th:block th:each="book : ${bookList.books}">
+                        <div class="Card" th:replace="~{books/card :: bookCard(${book})}"></div>
+                    </th:block>
+
+                    <div class="Cards-footer Cards-footer_center">
+                        <a th:style="${bookList.count <= T(java.lang.Integer).parseInt(@environment.getProperty('app.books-per-page'))} ? 'display:none'"
+                           class="btn btn_primary"
+                           href="#"
+                           data-refreshshow="search"
+                           data-refreshoffset="1"
+                           th:data-refreshlimit="${@environment.getProperty('app.books-per-page')}"
+                           th:data-refreshquery="${query}"
+                           th:text="#{button.more}"
+                        >Показать еще</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+</body>
+</html>

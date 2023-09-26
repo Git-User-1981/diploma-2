@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+<div class="Middle" th:fragment="content">
+    <div class="wrap">
+        <main class="Middle-main">
+            <ul class="breadcrumbs">
+                <li class="breadcrumbs-item">
+                    <a th:href="${@environment.getProperty('app.link.main')}" th:text="#{breadcrumbs.main}">Главная</a>
+                </li>
+                <li class="breadcrumbs-item">
+                    <a th:href="${@environment.getProperty('app.link.documents')}" th:text="#{breadcrumbs.documents}">Документы</a>
+                </li>
+                <li class="breadcrumbs-item breadcrumbs-item_current">
+                    <span th:text="${doc.title}">Заголовок документа</span>
+                </li>
+            </ul>
+            <h1 class="Middle-title" th:text="${doc.title}">Заголовок документа</h1>
+            <article class="Article" th:utext="${doc.text}">Текст документа</article>
+        </main>
+    </div>
+</div>
+</body>
+</html>

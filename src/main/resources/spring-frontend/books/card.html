@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div class="Card" th:fragment="bookCard(book)">
+        <a class="Card-picture" th:href="${book.slug}">
+            <img th:src="${book.image}" src="/assets/img/content/main/card.jpg" alt="card.jpg"/>
+            <div th:if="${book.discount > 0}"
+                 class="Card-sale"
+                 th:text="${book.discount} + #{book.discount}"
+            >30% скидка</div>
+            <div th:if="${book.isBestseller}" class="Card-ribbon">
+                <span class="Card-ribbonText" th:text="#{book.bestseller}">Бестселлер</span>
+            </div>
+            <a class="Card-status" th:if="${book.status == 'KEPT'}" th:title="#{button.postponed}">
+                <img src="/assets/img/icons/heart.svg" alt="heart.svg"/>
+            </a>
+            <a class="Card-status" th:if="${book.status == 'CART'}" th:title="#{button.in-cart}">
+                <img src="/assets/img/icons/shopping-basket.svg" alt="check.svg"/>
+            </a>
+            <a class="Card-status" th:if="${book.status == 'PAID'}" th:title="#{button.bought}">
+                <img src="/assets/img/icons/check.svg" alt="check.svg"/>
+            </a>
+            <a class="Card-status" th:if="${book.status == 'ARCHIVED'}" th:title="#{button.archived}">
+                <img src="/assets/img/icons/archive.svg" alt="archive.svg"/>
+            </a>
+        </a>
+        <div class="Card-content">
+            <strong class="Card-title">
+                <a th:href="${book.slug}" th:text="${book.title}">Техника</a>
+            </strong>
+            <div class="Card-description" th:text="${book.authors}">Кондратенко Валерий Петрович</div>
+            <div class="Card-cost">
+                <span th:if="${book.discount > 0}" class="Card-priceOld" th:text="${'₽' + book.discountPrice}">₽300.00</span>
+                <span class="Card-price" th:text="${'₽' + book.price}">₽190.00</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
